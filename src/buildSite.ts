@@ -28,6 +28,38 @@ const esc = (s: unknown): string =>
 const json = (v: unknown): string =>
   JSON.stringify(v).replace(/</g, '\\u003c').replace(/>/g, '\\u003e').replace(/\u2028|\u2029/g, '');
 
+/** Minimal RFC4180-ish parser: quoted fields, embedded commas, "" escapes. */
+function parseCsv(text: string): Array<Record<string, string>> {
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let cell = '';
+  let quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { cell += '"'; i++; } else quoted = false;
+      } else cell += c;
+      continue;
+    }
+    if (c === '"') quoted = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
+    else if (c !== '\r') cell += c;
+  }
+  if (cell !== '' || row.length) { row.push(cell); rows.push(row); }
+  const [header, ...body] = rows.filter((r) => r.some((c) => c.trim() !== ''));
+  if (!header) return [];
+  return body.map((r) => Object.fromEntries(header.map((h, i) => [h.trim(), (r[i] ?? '').trim()])));
+}
+
+const truthTri = (s: string): boolean | 'unknown' => {
+  const v = s.trim().toLowerCase();
+  if (['true', 'yes', 'y', '1'].includes(v)) return true;
+  if (['false', 'no', 'n', '0'].includes(v)) return false;
+  return 'unknown';
+};
+
 const pctStr = (n: number | null): string => (n === null ? '—' : `${Math.round(n * 100)}%`);
 const pp = (n: number | null): string => (n === null ? '—' : `${n >= 0 ? '+' : ''}${Math.round(n * 100)}pp`);
 
@@ -62,6 +94,30 @@ function main(): void {
   const accessMisses = a.misses.filter((m) => m.field === 'access');
   const criticCount = rows.filter((r) => (r.meta?.critic_changed?.length ?? 0) > 0).length;
 
+  /**
+   * Hand-checked truth for the 18 reviewed apps, keyed by id.
+   *
+   * The matrix shows the agent's raw output; where a human checked it and
+   * disagreed, both values are shown. Without this the table and the accuracy
+   * section contradict each other — the table would still call Plaid
+   * "self-serve" while the accuracy section proves it is "trial".
+   * The agent's data in results/rows.json is never modified.
+   */
+  const truthByIdEntries = fs.existsSync(path.resolve('results/human_review.csv'))
+    ? parseCsv(fs.readFileSync(path.resolve('results/human_review.csv'), 'utf8'))
+        .filter((rec) => rec.id)
+        .map((rec) => {
+          const t: Record<string, unknown> = {};
+          if (rec.truth_access) t.a = rec.truth_access.toLowerCase();
+          if (rec.truth_buildability) t.b = rec.truth_buildability.toLowerCase();
+          if (rec.truth_has_mcp) t.m = truthTri(rec.truth_has_mcp);
+          if (rec.truth_composio_toolkit_exists) t.k = truthTri(rec.truth_composio_toolkit_exists);
+          if (rec.truth_auth_methods) t.au = rec.truth_auth_methods.split(/[|,;]/).map((s) => s.trim().toLowerCase()).filter(Boolean);
+          return [rec.id, t] as const;
+        })
+    : [];
+  const truthById = new Map(truthByIdEntries);
+
   const tableData = rows.map((r) => ({
     n: r.name,
     c: r.category,
@@ -73,7 +129,10 @@ function main(): void {
     s: r.api_surface,
     bl: r.blocker,
     e: r.evidence_urls[0] ?? '',
+    t: truthById.get(r.id) ?? null,
   }));
+
+  const verifiedCount = tableData.filter((d) => d.t).length;
 
   const mostGated = p.access.by_category[0];
   const openCats = p.access.by_category.filter((c) => c.gated_pct === 0);
@@ -206,6 +265,12 @@ function main(): void {
   .pill.trial,.pill.needs-outreach{background:transparent;border-color:var(--gold);color:#7d6220}
   .pill.gated,.pill.blocked{background:transparent;border-color:var(--rust);color:var(--rust)}
   .yes{font:600 11.5px var(--mono)} .no,.unk{font:11.5px var(--mono);color:var(--dim)}
+
+  .ver{color:#3f6b3f;font:600 11px var(--mono);margin-left:5px}
+  .was{color:var(--dim);text-decoration:line-through;font:11px var(--mono);margin-right:5px}
+  tr.checked td.name::after{content:"✓";color:#3f6b3f;font:600 10px var(--mono);margin-left:6px;vertical-align:super}
+  .legend{color:var(--muted);font-size:13.2px;margin:10px 0 0}
+  .legend .ver{margin:0 2px 0 0}
 
   .tag{font:600 10px var(--mono);padding:2px 7px;border-radius:999px;letter-spacing:.04em}
   .tag.fix{background:var(--ink);color:var(--bg)}
@@ -385,8 +450,10 @@ function main(): void {
       <select id="fAuth"><option value="">Any auth</option>${authSchemes.map((s) => `<option>${esc(s)}</option>`).join('')}</select>
       <select id="fBuild"><option value="">Any verdict</option><option>easy</option><option>needs-outreach</option><option>blocked</option></select>
       <select id="fKit"><option value="">Toolkit: any</option><option value="true">Has toolkit</option><option value="false">No toolkit</option></select>
+      <select id="fVer"><option value="">All rows</option><option value="1">Hand-checked only</option><option value="d">Human disagreed</option></select>
       <input type="search" id="q" placeholder="Search app or API…">
     </div>
+    <p class="legend"><span class="ver">✓</span> marks the ${verifiedCount} apps checked by hand. Where the human disagreed, the agent's answer is <span class="was">struck through</span> and the verified value shown beside it. The agent's raw output in <code>rows.json</code> is unchanged.</p>
 
     <div class="tablewrap">
       <table class="grid">
@@ -443,11 +510,37 @@ function main(): void {
 const DATA = ${json(tableData)};
 const $ = id => document.getElementById(id);
 const tbody = $('tbody');
-const els = { access:$('fAccess'), auth:$('fAuth'), build:$('fBuild'), kit:$('fKit'), q:$('q') };
+const els = { access:$('fAccess'), auth:$('fAuth'), build:$('fBuild'), kit:$('fKit'), ver:$('fVer'), q:$('q') };
 let cat = '';
 
-const tri = v => v === true ? '<span class="yes">yes</span>' : v === false ? '<span class="no">no</span>' : '<span class="unk">&ndash;</span>';
+const triTxt = v => v === true ? 'yes' : v === false ? 'no' : '&ndash;';
+const tri = v => '<span class="' + (v === true ? 'yes' : v === false ? 'no' : 'unk') + '">' + triTxt(v) + '</span>';
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const pill = v => '<span class="pill ' + esc(v) + '">' + esc(v) + '</span>';
+
+/* Agent value, plus the hand-checked one when a human looked and disagreed. */
+const verdict = (agent, truth) => {
+  if (truth === undefined) return pill(agent);
+  if (truth === agent) return pill(agent) + '<span class="ver">&check;</span>';
+  return '<span class="was">' + esc(agent) + '</span>' + pill(truth) + '<span class="ver">&check;</span>';
+};
+const verTri = (agent, truth) => {
+  if (truth === undefined) return tri(agent);
+  if (truth === agent) return tri(agent) + '<span class="ver">&check;</span>';
+  return '<span class="was">' + triTxt(agent) + '</span>' + tri(truth) + '<span class="ver">&check;</span>';
+};
+
+/* True when the human's answer differs from the agent on any checked field. */
+const disagreed = d => {
+  if (!d.t) return false;
+  const t = d.t;
+  if (t.a !== undefined && t.a !== d.a) return true;
+  if (t.b !== undefined && t.b !== d.b) return true;
+  if (t.k !== undefined && t.k !== d.k) return true;
+  if (t.m !== undefined && t.m !== d.m) return true;
+  return false;
+};
 
 function render(){
   const ac = els.access.value, au = els.auth.value, bu = els.build.value,
