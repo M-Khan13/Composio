@@ -12,7 +12,8 @@
     "score": "tsx src/scoreAccuracy.ts",
     "site": "npx --yes serve site",
     "discover": "tsx src/discover.ts",
-    "sample": "tsx src/makeReviewSample.ts"
+    "sample": "tsx src/makeReviewSample.ts",
+    "build:site": "tsx src/buildSite.ts"
   },
   "dependencies": {
     "@composio/core": "^0.16.0",

@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One hundred apps, researched and re-checked</title>
+<meta name="description" content="An agent researched 100 SaaS apps for API access, auth, and agent-toolkit buildability. Findings, the full matrix, and a measured accuracy check.">
+<style>
+  :root{
+    --bg:#f2efe8; --paper:#f8f6f1; --panel:#fbfaf6;
+    --ink:#1c1a16; --muted:#6e6959; --dim:#918b7b;
+    --line:#e2dccd; --line2:#d3ccb9;
+    --gold:#b08b2e; --rust:#a8552f;
+    --serif:ui-serif,Georgia,"Iowan Old Style","Times New Roman",serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.62 ui-sans-serif,-apple-system,"Segoe UI",Inter,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 26px}
+  h1,h2,h3{margin:0;line-height:1.14;font-family:var(--serif);font-weight:600;letter-spacing:-.015em}
+  h1{font-size:clamp(34px,6vw,60px)}
+  h2{font-size:clamp(24px,3.4vw,34px)}
+  h3{font-size:16px;letter-spacing:-.005em;font-family:inherit;font-weight:650}
+  p{margin:.7em 0}
+  a{color:var(--ink);text-decoration:underline;text-underline-offset:2px;text-decoration-color:var(--line2)}
+  a:hover{text-decoration-color:var(--ink)}
+  .kicker{font:600 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- hero ---------- */
+  header{padding:64px 0 44px}
+  .hero{display:grid;grid-template-columns:1fr minmax(230px,286px);gap:44px;align-items:end}
+  .hero .lede{color:var(--muted);font-size:17px;max-width:56ch;margin-top:16px}
+  .repo{margin-top:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .repo a{font:600 14px var(--mono);text-decoration-color:var(--line2)}
+  .bigstat{border:1px solid var(--line2);border-radius:3px;background:var(--paper);padding:20px 22px}
+  .bigstat .lbl{font:600 10px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .bigstat b{display:block;font-family:var(--serif);font-size:66px;line-height:1;margin:12px 0 8px;letter-spacing:-.03em}
+  .bigstat span{color:var(--muted);font-size:13.5px;line-height:1.45;display:block}
+  .rule{height:1px;background:var(--line2);margin:0}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0}
+  .sec-title{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .sub{color:var(--muted);max-width:68ch;margin:12px 0 0}
+
+  /* ---------- findings ---------- */
+  .finds{display:grid;gap:10px;margin-top:26px}
+  .find{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:16px 20px;
+    display:grid;grid-template-columns:30px 1fr;gap:16px;align-items:start}
+  .find .n{font:600 11px/1.5 var(--mono);color:var(--dim);letter-spacing:.06em}
+  .find b{font-weight:650}
+  .find p{margin:3px 0 0;color:var(--muted);font-size:14.6px}
+  .find em{font-style:normal;font-weight:650;color:var(--ink)}
+
+  /* ---------- bars ---------- */
+  .barwrap{margin-top:30px}
+  .barwrap h3{margin-bottom:12px}
+  .bars{display:grid;gap:6px}
+  .bar{display:grid;grid-template-columns:minmax(130px,235px) 1fr auto;gap:14px;align-items:center;font-size:13.4px}
+  .bar .lbl{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar .track{background:#e7e1d3;border-radius:2px;height:8px;overflow:hidden}
+  .bar .fill{height:100%;background:var(--ink);border-radius:2px}
+  .bar .fill.gold{background:var(--gold)} .bar .fill.rust{background:var(--rust)}
+  .bar .val{font:600 12px var(--mono);color:var(--muted);min-width:48px;text-align:right}
+
+  /* ---------- accuracy trio ---------- */
+  .trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:26px}
+  .tri{border:1px solid var(--line2);border-radius:3px;background:var(--paper);padding:18px 20px}
+  .tri .lbl{font:600 10px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .tri .v{font-family:var(--serif);font-size:clamp(26px,3.6vw,34px);line-height:1.1;margin:12px 0 6px;letter-spacing:-.02em}
+  .tri .v .to{color:var(--dim);margin:0 6px}
+  .tri .v .end.up{color:var(--ink)} .tri .v .end.down{color:var(--rust)}
+  .tri .foot{color:var(--dim);font:11.5px var(--mono);letter-spacing:.04em}
+
+  /* ---------- tables ---------- */
+  .acc{width:100%;border-collapse:collapse;margin-top:24px;font-size:14px;
+    background:var(--paper);border:1px solid var(--line)}
+  .acc th,.acc td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left}
+  .acc thead th{font:600 10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+    background:#efebe0}
+  .acc tbody tr:last-child td{border-bottom:none}
+  .acc td.num{font:600 13px var(--mono);text-align:right}
+  .up{color:#3f6b3f} .down{color:var(--rust)} .flat{color:var(--dim)}
+
+  .callout{background:var(--paper);border:1px solid var(--line);border-left:2px solid var(--gold);
+    border-radius:3px;padding:18px 21px;margin-top:24px}
+  .callout.bad{border-left-color:var(--rust)}
+  .callout p{margin:.5em 0;color:var(--muted);font-size:14.5px}
+  .callout p b{color:var(--ink)}
+
+  /* ---------- app matrix ---------- */
+  .showing{font:11.5px var(--mono);color:var(--dim);letter-spacing:.04em}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0 12px}
+  .chip{border:1px solid var(--line2);background:transparent;color:var(--muted);border-radius:999px;
+    padding:6px 13px;font:inherit;font-size:12.6px;cursor:pointer;white-space:nowrap}
+  .chip:hover{border-color:var(--dim);color:var(--ink)}
+  .chip.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+  select,input[type=search]{background:var(--paper);color:var(--ink);border:1px solid var(--line2);
+    border-radius:3px;padding:8px 11px;font:inherit;font-size:13.2px}
+  input[type=search]{min-width:180px;flex:1}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--paper)}
+  table.grid{border-collapse:collapse;width:100%;font-size:13.2px;min-width:900px}
+  table.grid th,table.grid td{text-align:left;padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.grid thead th{position:sticky;top:0;background:#efebe0;z-index:2;white-space:nowrap;
+    font:600 10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+  table.grid tbody tr:last-child td{border-bottom:none}
+  table.grid tbody tr:hover{background:#f2eee3}
+  td.idx{font:11.5px var(--mono);color:var(--dim);width:34px}
+  td.name{font-weight:650;white-space:nowrap}
+  td.cat{color:var(--muted);font-size:12.4px;white-space:nowrap}
+  td.auth{color:var(--muted);font:11.6px var(--mono);white-space:nowrap}
+  td.surface{color:var(--muted);min-width:230px}
+
+  .pill{display:inline-block;padding:3px 11px;border-radius:999px;font:600 11px var(--mono);white-space:nowrap;border:1px solid transparent}
+  .pill.self-serve,.pill.easy{background:var(--ink);color:var(--bg)}
+  .pill.trial,.pill.needs-outreach{background:transparent;border-color:var(--gold);color:#7d6220}
+  .pill.gated,.pill.blocked{background:transparent;border-color:var(--rust);color:var(--rust)}
+  .yes{font:600 11.5px var(--mono)} .no,.unk{font:11.5px var(--mono);color:var(--dim)}
+
+  .tag{font:600 10px var(--mono);padding:2px 7px;border-radius:999px;letter-spacing:.04em}
+  .tag.fix{background:var(--ink);color:var(--bg)}
+  .tag.brk{border:1px solid var(--rust);color:var(--rust)}
+
+  /* ---------- steps + links ---------- */
+  .steps{display:grid;gap:10px;margin-top:24px;counter-reset:s}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:15px 19px;
+    display:grid;grid-template-columns:28px 1fr;gap:15px;align-items:start}
+  .step .i{counter-increment:s;font:600 11px/1.6 var(--mono);color:var(--dim)}
+  .step .i::before{content:"0" counter(s)}
+  .step b{font-weight:650;font-size:14.6px} .step p{margin:3px 0 0;color:var(--muted);font-size:14px}
+
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .link{background:var(--paper);border:1px solid var(--line2);border-radius:3px;padding:13px 18px;
+    text-decoration:none;font-size:14px;font-weight:650}
+  .link:hover{border-color:var(--ink)}
+  .link span{display:block;color:var(--muted);font-size:12.4px;margin-top:2px;font-weight:400}
+
+  footer{border-top:1px solid var(--line2);padding:26px 0 62px;margin-top:20px}
+  .footrow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    color:var(--dim);font:11.5px var(--mono);letter-spacing:.04em}
+  code{font:12.6px var(--mono);background:#e9e4d6;padding:1.5px 5px;border-radius:2px}
+
+  @media(max-width:760px){
+    .hero{grid-template-columns:1fr;gap:26px;align-items:start}
+    header{padding:44px 0 30px} section{padding:38px 0}
+    .bar{grid-template-columns:minmax(92px,120px) 1fr auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Case study</div>
+    <div class="hero" style="margin-top:20px">
+      <div>
+        <h1>One hundred apps,<br>researched and re-checked.</h1>
+        <p class="lede">An agent read the developer docs for 100 SaaS products through Composio, extracted a structured verdict with Gemini, and cross-checked every answer against Composio's own toolkit catalogue. Then 18 of them were checked by hand. This is what held up — and what didn't.</p>
+        <p class="repo"><span class="kicker">Source</span> <a href="https://github.com/M-Khan13/Composio" rel="noopener">github.com/M-Khan13/Composio</a></p>
+      </div>
+      <div class="bigstat">
+        <div class="lbl">Second-pass accuracy</div>
+        <b>54%</b>
+        <span>Up from 34% when answering from search snippets alone.</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<section>
+  <div class="wrap">
+    <h2>Findings</h2>
+    <div class="finds">
+      <div class="find"><span class="n">01</span><div><b>Access is bimodal, not a spectrum.</b><p><em>4 of 10 categories are 100% self-serve.</em> Gating concentrates almost entirely in Finance and Fintech (40%) and AI/Research (40%). A category is either wide open or it isn't — very little sits in between.</p></div></div>
+      <div class="find"><span class="n">02</span><div><b>Gating is about who you are, not what you pay.</b><p>Of the 15 blocked apps, the leading blocker is <em>partnership required</em>. Only 1 is simply "contact sales" — the rest need a partnership, an approval process, or an enterprise contract.</p></div></div>
+      <div class="find"><span class="n">03</span><div><b>Toolkit coverage tracks category age, not difficulty.</b><p>Composio covers <em>90% of Productivity and Project Management</em> but only 30% of AI, Research and Media-native. The gap isn't where APIs are hard — it's where the category is new. 31 apps are self-serve, easy, and have no toolkit yet.</p></div></div>
+      <div class="find"><span class="n">04</span><div><b>No toolkit can assume a single auth path.</b><p><em>54 of 100 apps accept more than one auth scheme.</em> OAuth2 leads (62 apps) with API keys close behind (50), and both are commonly offered on the same product.</p></div></div>
+      <div class="find"><span class="n">05</span><div><b>One field still needed a human — and verification made it worse.</b><p>Deciding whether a developer can truly self-serve credentials is a judgement about commercial posture, not a fact in the docs. <em>The verification pass moved <code>access</code> backwards (-6pp)</em>, fixing 3 apps and breaking 4. Every other field improved.</p></div></div>
+    </div>
+
+    <div class="barwrap">
+      <h3>Gated or trial access, by category</h3>
+      <div class="bars">
+      <div class="bar"><span class="lbl">Finance and Fintech</span><span class="track"><span class="fill rust" style="width:40%"></span></span><span class="val">40%</span></div>
+      <div class="bar"><span class="lbl">AI, Research and Media-native</span><span class="track"><span class="fill rust" style="width:40%"></span></span><span class="val">40%</span></div>
+      <div class="bar"><span class="lbl">Marketing, Ads, Email and Social</span><span class="track"><span class="fill gold" style="width:20%"></span></span><span class="val">20%</span></div>
+      <div class="bar"><span class="lbl">Ecommerce</span><span class="track"><span class="fill gold" style="width:20%"></span></span><span class="val">20%</span></div>
+      <div class="bar"><span class="lbl">Data, SEO and Scraping</span><span class="track"><span class="fill gold" style="width:20%"></span></span><span class="val">20%</span></div>
+      <div class="bar"><span class="lbl">Support and Helpdesk</span><span class="track"><span class="fill gold" style="width:10%"></span></span><span class="val">10%</span></div>
+      <div class="bar"><span class="lbl">CRM and Sales</span><span class="track"><span class="fill " style="width:1.5%"></span></span><span class="val">0%</span></div>
+      <div class="bar"><span class="lbl">Communications and Messaging</span><span class="track"><span class="fill " style="width:1.5%"></span></span><span class="val">0%</span></div>
+      <div class="bar"><span class="lbl">Developer, Infra and Data platforms</span><span class="track"><span class="fill " style="width:1.5%"></span></span><span class="val">0%</span></div>
+      <div class="bar"><span class="lbl">Productivity and Project Management</span><span class="track"><span class="fill " style="width:1.5%"></span></span><span class="val">0%</span></div>
+      </div>
+    </div>
+
+    <div class="barwrap">
+      <h3>Composio toolkit coverage, by category</h3>
+      <div class="bars">
+      <div class="bar"><span class="lbl">Productivity and Project Management</span><span class="track"><span class="fill" style="width:90%"></span></span><span class="val">9/10</span></div>
+      <div class="bar"><span class="lbl">Developer, Infra and Data platforms</span><span class="track"><span class="fill" style="width:80%"></span></span><span class="val">8/10</span></div>
+      <div class="bar"><span class="lbl">Support and Helpdesk</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="val">7/10</span></div>
+      <div class="bar"><span class="lbl">Marketing, Ads, Email and Social</span><span class="track"><span class="fill" style="width:70%"></span></span><span class="val">7/10</span></div>
+      <div class="bar"><span class="lbl">CRM and Sales</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="val">6/10</span></div>
+      <div class="bar"><span class="lbl">Data, SEO and Scraping</span><span class="track"><span class="fill" style="width:60%"></span></span><span class="val">6/10</span></div>
+      <div class="bar"><span class="lbl">Communications and Messaging</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">5/10</span></div>
+      <div class="bar"><span class="lbl">Ecommerce</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">5/10</span></div>
+      <div class="bar"><span class="lbl">Finance and Fintech</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">5/10</span></div>
+      <div class="bar"><span class="lbl">AI, Research and Media-native</span><span class="track"><span class="fill" style="width:30%"></span></span><span class="val">3/10</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<section>
+  <div class="wrap">
+    <h2>Accuracy, honestly</h2>
+    <p class="sub">Every app was answered twice. <b>Pass 1</b> answers from search snippets only. <b>Pass 2</b> fetches the real docs, cross-checks Composio's catalogue, and runs a critic that re-reads the evidence. Both use the same code path with steps switched off, so the difference is attributable to verification rather than to two different prompts. 18 apps — 90 individual field judgements — were then checked by hand.</p>
+
+    <div class="trio">
+      <div class="tri">
+        <div class="lbl">Overall</div>
+        <div class="v">34%<span class="to">&rarr;</span><span class="end up">54%</span></div>
+        <div class="foot">Pass 1 &rarr; Pass 2</div>
+      </div>
+      <div class="tri">
+        <div class="lbl">Access (the human field)</div>
+        <div class="v">72%<span class="to">&rarr;</span><span class="end down">67%</span></div>
+        <div class="foot">Pass 1 &rarr; Pass 2</div>
+      </div>
+      <div class="tri">
+        <div class="lbl">Catalogue cross-check</div>
+        <div class="v">0%<span class="to">&rarr;</span><span class="end up">83%</span></div>
+        <div class="foot">Pass 1 &rarr; Pass 2</div>
+      </div>
+    </div>
+
+    <table class="acc">
+      <thead><tr><th>Field</th><th style="text-align:right">n</th><th style="text-align:right">Pass 1</th><th style="text-align:right">Pass 2</th><th style="text-align:right">Change</th></tr></thead>
+      <tbody>
+      <tr><td><code>access</code></td><td class="num">18</td><td class="num">72%</td><td class="num">67%</td><td class="num down">-6pp</td></tr>
+      <tr><td><code>auth_methods</code></td><td class="num">18</td><td class="num">28%</td><td class="num">28%</td><td class="num flat">+0pp</td></tr>
+      <tr><td><code>has_mcp</code></td><td class="num">18</td><td class="num">6%</td><td class="num">17%</td><td class="num up">+11pp</td></tr>
+      <tr><td><code>buildability</code></td><td class="num">18</td><td class="num">67%</td><td class="num">78%</td><td class="num up">+11pp</td></tr>
+      <tr><td><code>composio_toolkit_exists</code></td><td class="num">18</td><td class="num">0%</td><td class="num">83%</td><td class="num up">+83pp</td></tr>
+      <tr style="border-top:2px solid var(--line2)">
+        <td><b>Overall</b></td><td class="num">90</td>
+        <td class="num">34%</td>
+        <td class="num"><b>54%</b></td>
+        <td class="num up"><b>+20pp</b></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="callout bad">
+      <h3>Three things this table does not let me claim</h3>
+      <p><b>1. <code>access</code> got worse (-6pp).</b> The critic over-corrects on judgement calls — it fixed 3 apps and broke 4, mostly by flipping self-serve to gated. Verification helps on facts you can read off a page and hurts on questions about commercial intent. The fix is to stop the critic touching <code>access</code>, which measurement revealed and intuition would not have.</p>
+      <p><b>2. The <code>composio_toolkit_exists</code> jump is a gimme.</b> Pass 1 never consults the catalogue, so it scores 0% by construction. It is a real capability difference, but it inflates the overall delta and is not the model getting smarter.</p>
+      <p><b>3. <code>auth_methods</code> is scored strictly.</b> Exact set equality — truth <code>api-key</code> against agent <code>api-key, oauth2</code> counts as a miss. That is harsh, and it is why the number is low.</p>
+      <p><b>The sample is deliberately unfair.</b> It over-weights fintech, gated products, and rows whose cited evidence looked like it came from the wrong company. A random 18 would have drawn mostly easy developer tools and flattered both passes. These are worst-case figures.</p>
+    </div>
+
+    <h3 style="margin-top:32px">Every <code>access</code> judgement that missed</h3>
+    <table class="acc">
+      <thead><tr><th>App</th><th>Truth</th><th>Pass 1</th><th>Pass 2</th><th></th></tr></thead>
+      <tbody>
+      <tr><td>Plaid</td><td><span class="pill trial">trial</span></td><td><span class="unk">trial</span></td><td><span class="unk">self-serve</span></td><td><span class="tag brk">broken by pass 2</span></td></tr>
+      <tr><td>DealCloud</td><td><span class="pill gated">gated</span></td><td><span class="unk">gated</span></td><td><span class="unk">self-serve</span></td><td><span class="tag brk">broken by pass 2</span></td></tr>
+      <tr><td>Binance</td><td><span class="pill self-serve">self-serve</span></td><td><span class="unk">self-serve</span></td><td><span class="unk">gated</span></td><td><span class="tag brk">broken by pass 2</span></td></tr>
+      <tr><td>Mermaid CLI</td><td><span class="pill self-serve">self-serve</span></td><td><span class="unk">self-serve</span></td><td><span class="unk">gated</span></td><td><span class="tag brk">broken by pass 2</span></td></tr>
+      <tr><td>Sherlock</td><td><span class="pill self-serve">self-serve</span></td><td><span class="unk">gated</span></td><td><span class="unk">self-serve</span></td><td><span class="tag fix">fixed by pass 2</span></td></tr>
+      <tr><td>Ramp</td><td><span class="pill gated">gated</span></td><td><span class="unk">self-serve</span></td><td><span class="unk">trial</span></td><td></td></tr>
+      <tr><td>Paygent Connect</td><td><span class="pill self-serve">self-serve</span></td><td><span class="unk">gated</span></td><td><span class="unk">self-serve</span></td><td><span class="tag fix">fixed by pass 2</span></td></tr>
+      <tr><td>Waterfall.io</td><td><span class="pill gated">gated</span></td><td><span class="unk">self-serve</span></td><td><span class="unk">gated</span></td><td><span class="tag fix">fixed by pass 2</span></td></tr>
+      <tr><td>Grain</td><td><span class="pill self-serve">self-serve</span></td><td><span class="unk">gated</span></td><td><span class="unk">gated</span></td><td></td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:20px;color:var(--muted);font-size:14.2px">Worth stating plainly: the model reported <code>confidence: high</code> on all 100 rows. Self-reported confidence did not discriminate at all, which is exactly why this hand-checked measurement exists.</p>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-title">
+      <h2>The 100 apps</h2>
+      <span class="showing" id="count"></span>
+    </div>
+
+    <div class="chips" id="chips">
+      <button class="chip on" data-cat="">All</button>
+      <button class="chip" data-cat="AI, Research and Media-native">AI, Research &amp;amp; Media-native</button>
+      <button class="chip" data-cat="CRM and Sales">CRM &amp;amp; Sales</button>
+      <button class="chip" data-cat="Communications and Messaging">Communications &amp;amp; Messaging</button>
+      <button class="chip" data-cat="Data, SEO and Scraping">Data, SEO &amp;amp; Scraping</button>
+      <button class="chip" data-cat="Developer, Infra and Data platforms">Developer, Infra &amp;amp; Data platforms</button>
+      <button class="chip" data-cat="Ecommerce">Ecommerce</button>
+      <button class="chip" data-cat="Finance and Fintech">Finance &amp;amp; Fintech</button>
+      <button class="chip" data-cat="Marketing, Ads, Email and Social">Marketing, Ads, Email &amp;amp; Social</button>
+      <button class="chip" data-cat="Productivity and Project Management">Productivity &amp;amp; Project Management</button>
+      <button class="chip" data-cat="Support and Helpdesk">Support &amp;amp; Helpdesk</button>
+    </div>
+
+    <div class="controls">
+      <select id="fAccess"><option value="">Any access</option><option>self-serve</option><option>trial</option><option>gated</option></select>
+      <select id="fAuth"><option value="">Any auth</option><option>oauth2</option><option>api-key</option><option>token</option><option>basic</option><option>oauth1</option><option>other</option><option>session</option></select>
+      <select id="fBuild"><option value="">Any verdict</option><option>easy</option><option>needs-outreach</option><option>blocked</option></select>
+      <select id="fKit"><option value="">Toolkit: any</option><option value="true">Has toolkit</option><option value="false">No toolkit</option></select>
+      <input type="search" id="q" placeholder="Search app or API…">
+    </div>
+
+    <div class="tablewrap">
+      <table class="grid">
+        <thead><tr>
+          <th>#</th><th>App</th><th>Category</th><th>Access</th><th>Auth</th>
+          <th>Verdict</th><th>Kit</th><th>MCP</th><th>API surface</th><th>Evidence</th>
+        </tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<section>
+  <div class="wrap">
+    <h2>How the agent works</h2>
+    <p class="sub">Built with Composio's SDK for its tools and Gemini for structured extraction. Five steps per app.</p>
+    <div class="steps">
+      <div class="step"><span class="i"></span><div><b>Search the open web</b><p>Composio's <code>COMPOSIO_SEARCH_WEB</code> tool finds candidate developer docs. Tool slugs are resolved from the live catalogue at runtime, never hardcoded.</p></div></div>
+      <div class="step"><span class="i"></span><div><b>Rank, then fetch the real docs</b><p>Candidate URLs are scored for authority — <code>docs.</code>/<code>developer.</code> subdomains and matching domains win — then the top pages are fetched through Composio and reduced to text.</p></div></div>
+      <div class="step"><span class="i"></span><div><b>Extract with a strict schema</b><p>Gemini returns one JSON row constrained by a response schema. Out-of-range values fall back to the conservative option, so a bad row can never break the batch.</p></div></div>
+      <div class="step"><span class="i"></span><div><b>Cross-check Composio's catalogue</b><p>Each app is looked up by slug across Composio's 1,000+ toolkits. This is near-ground-truth: a shipped toolkit proves a credential-obtainable API exists.</p></div></div>
+      <div class="step"><span class="i"></span><div><b>Re-read and criticise</b><p>A second pass re-reads the source docs and corrects fields the evidence contradicts. It changed at least one field on <b>22 of 100</b> rows.</p></div></div>
+    </div>
+
+    <div class="callout">
+      <h3>Where a human was still required</h3>
+      <p><b>The <code>access</code> field.</b> Plaid documents its API openly and publishes a free sandbox — but production access requires approval, which makes it <code>trial</code>, not <code>self-serve</code>. Nothing on the page says so. 9 of the 18 hand-checked apps had <code>access</code> wrong in at least one pass.</p>
+      <p>A <b>preflight</b> executes one real search before any model call and aborts the run if the tools don't work — because an early version silently degraded to model memory when Composio returned 403, and produced five confident, plausible, completely unearned rows.</p>
+    </div>
+
+    <div class="links">
+      <a class="link" href="https://github.com/M-Khan13/Composio">Repository<span>Agent, analysis, and this page</span></a>
+      
+      <a class="link" href="https://github.com/M-Khan13/Composio/blob/main/results/rows.json">rows.json<span>All 100 researched rows</span></a>
+      <a class="link" href="https://github.com/M-Khan13/Composio/blob/main/results/accuracy.json">accuracy.json<span>Pass 1 vs pass 2, every miss</span></a>
+      <a class="link" href="https://github.com/M-Khan13/Composio/blob/main/results/human_review.csv">human_review.csv<span>The 18 hand-checked apps</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footrow">
+      <span>Case study &middot; 100-app agent-toolkit survey</span>
+      <span>Composio + Gemini &middot; figures computed from results/*.json</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const DATA = [{"n":"Salesforce","c":"CRM and Sales","a":"self-serve","au":["oauth2","basic"],"b":"easy","k":true,"m":"unknown","s":"Broad REST, SOAP, and gRPC APIs covering thousands of enterprise CRM objects and platform resources.","bl":"","e":"https://developer.salesforce.com/docs/platform/pub-sub-api/guide/supported-auth.html"},{"n":"HubSpot","c":"CRM and Sales","a":"self-serve","au":["oauth2","api-key","personal-access-token"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API covering CRM objects, conversations, webhooks, and developer tools.","bl":"","e":"https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview"},{"n":"Pipedrive","c":"CRM and Sales","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"RESTful API with OpenAPI 3 specifications and client libraries for Node.js and PHP, covering core product functionality.","bl":"","e":"https://developers.pipedrive.com/docs/api/v1"},{"n":"Attio","c":"CRM and Sales","a":"self-serve","au":["oauth2","bearer"],"b":"easy","k":true,"m":"unknown","s":"REST API with OAuth2 and API key authentication supporting workspace and resource management.","bl":"","e":"https://docs.attio.com/docs/oauth/introspect"},{"n":"Twenty","c":"CRM and Sales","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":false,"m":"unknown","s":"Broad REST and GraphQL APIs providing Core CRUD endpoints and Metadata schema management per workspace.","bl":"","e":"https://docs.twenty.com/developers/extend/api"},{"n":"Podio","c":"CRM and Sales","a":"self-serve","au":["oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API providing complete programmatic access to Podio apps, items, workspaces, organizations, users, tasks, files, comments, and webhooks.","bl":"","e":"https://apis.io/apis/podio/rest-api/"},{"n":"Zoho CRM","c":"CRM and Sales","a":"self-serve","au":["oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API, V8.","bl":"","e":"https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html"},{"n":"Close","c":"CRM and Sales","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"REST API with broad coverage of CRM resources and endpoints.","bl":"","e":"https://developer.close.com/api/overview/rate-limits.md"},{"n":"Copper","c":"CRM and Sales","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API with endpoints covering account data and developer resources.","bl":"","e":"https://developer.copper.com/introduction/authentication.html"},{"n":"DealCloud","c":"CRM and Sales","a":"self-serve","au":["oauth2","api-key"],"b":"easy","k":false,"m":true,"s":"REST API with endpoints for data, schema, user management, publications, and backups.","bl":"","e":"https://api.docs.dealcloud.com/docs/token"},{"n":"Zendesk","c":"Support and Helpdesk","a":"self-serve","au":["oauth2","api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API supporting OAuth2 and API tokens for comprehensive helpdesk management.","bl":"","e":"https://developer.zendesk.com/api-reference/introduction/security-and-auth/"},{"n":"Intercom","c":"Support and Helpdesk","a":"self-serve","au":["bearer","oauth2"],"b":"easy","k":true,"m":true,"s":"Broad REST API covering users, companies, conversations, tickets, tags, events, admins, and workspace data.","bl":"","e":"https://developers.intercom.com/docs/build-an-integration/learn-more/authentication"},{"n":"Freshdesk","c":"Support and Helpdesk","a":"self-serve","au":["basic","api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API over HTTP/JSON covering tickets, contacts, companies, agents, and helpdesk settings.","bl":"","e":"https://developer.freshdesk.com/api/v1/"},{"n":"Front","c":"Support and Helpdesk","a":"self-serve","au":["bearer","oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API with broad coverage of core support and helpdesk resources.","bl":"","e":"https://dev.frontapp.com/docs/authentication"},{"n":"Pylon","c":"Support and Helpdesk","a":"self-serve","au":["bearer"],"b":"easy","k":false,"m":"unknown","s":"REST API with an OpenAPI specification covering endpoints like accounts and user details.","bl":"","e":"https://docs.usepylon.com/pylon-docs/developer/api/authentication"},{"n":"LiveAgent","c":"Support and Helpdesk","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":"unknown","s":"REST API with both legacy (v1) and current (v3) versions.","bl":"","e":"https://github.com/QualityUnit/LiveAgent-api-python/blob/master/docs/ApiApi.md"},{"n":"Plain","c":"Support and Helpdesk","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad GraphQL API with machine user API keys and associated SDKs.","bl":"","e":"https://www.plain.com/docs/agents/machine-users"},{"n":"Help Scout","c":"Support and Helpdesk","a":"self-serve","au":["oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API using OAuth 2.0 with endpoints for mailbox and docs.","bl":"","e":"https://developer.helpscout.com/mailbox-api/overview/authentication/"},{"n":"Gorgias","c":"Support and Helpdesk","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API supporting private app API keys and public app OAuth2 authentication.","bl":"","e":"https://developers.gorgias.com/reference/authentication"},{"n":"Gladly","c":"Support and Helpdesk","a":"gated","au":["basic"],"b":"needs-outreach","k":false,"m":"unknown","s":"REST API via HTTPS.","bl":"Requires an existing Gladly account and permission configuration to obtain API access.","e":"https://help.gladly.com/developer-tutorials/docs/test-the-rest-api-with-postman"},{"n":"Slack","c":"Communications and Messaging","a":"self-serve","au":["oauth2"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API with extensive methods, events, and webhooks.","bl":"","e":"https://docs.slack.dev/reference/"},{"n":"Twilio","c":"Communications and Messaging","a":"self-serve","au":["basic","oauth2","api-key"],"b":"easy","k":false,"m":"unknown","s":"Broad REST API over HTTPS with multiple resources covering voice, messaging, phone numbers, and accounts.","bl":"","e":"https://www.twilio.com/docs/iam/api"},{"n":"Zoho Cliq","c":"Communications and Messaging","a":"self-serve","au":["oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API with broad coverage including channels, chats, messages, bots, and webhooks.","bl":"","e":"https://www.zoho.com/cliq/help/restapi/v3/oauth/"},{"n":"Lark (Larksuite)","c":"Communications and Messaging","a":"self-serve","au":["oauth2","bearer"],"b":"easy","k":false,"m":"unknown","s":"REST API with broad coverage including server-side APIs, events, and authentication management.","bl":"","e":"https://open.larksuite.com/document/common-capabilities/sso/api/get-access_token"},{"n":"Pumble","c":"Communications and Messaging","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API with a broad set of operations covering users, channels, messages, files, calls, and app interactions.","bl":"","e":"https://docs.pumble.com/#description/api-endpoints-usage"},{"n":"Discord","c":"Communications and Messaging","a":"self-serve","au":["oauth2","basic"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API and Gateway WebSocket connection accessible via self-serve developer accounts.","bl":"","e":"https://docs.discord.com/developers/platform/oauth2-and-permissions"},{"n":"Telegram","c":"Communications and Messaging","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad REST/MTProto API and Bot API.","bl":"","e":"https://core.telegram.org/api/obtaining_api_id"},{"n":"WhatsApp Business","c":"Communications and Messaging","a":"self-serve","au":["bearer"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API via Meta Graph API for messaging and business management.","bl":"","e":"https://developers.facebook.com/docs/whatsapp/business-management-api/reference/"},{"n":"Aircall","c":"Communications and Messaging","a":"self-serve","au":["basic","oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API for managing calls and integrations.","bl":"","e":"https://developer.aircall.io/docs/authentication"},{"n":"Vonage","c":"Communications and Messaging","a":"self-serve","au":["api-key","basic","jwt"],"b":"easy","k":false,"m":"unknown","s":"Broad REST API with support for JWT and Basic authentication across multiple communication channels.","bl":"","e":"https://developer.vonage.com/en/getting-started/concepts/authentication"},{"n":"Google Ads","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["oauth2","api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad gRPC and REST API covering campaigns, reporting, and management resources.","bl":"","e":"https://developers.google.com/google-ads/api/rest/auth"},{"n":"Meta Ads","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["oauth2","access-token"],"b":"easy","k":true,"m":"unknown","s":"REST API via Meta Graph API supporting broad marketing, ad campaigns, and ads management resources.","bl":"","e":"https://developers.facebook.com/docs/marketing-api/get-started/authentication/"},{"n":"LinkedIn Ads","c":"Marketing, Ads, Email and Social","a":"gated","au":["oauth2"],"b":"needs-outreach","k":true,"m":"unknown","s":"REST API with dedicated marketing and advertising endpoints requiring partner approval.","bl":"Advertising API permissions require explicit partner approval and application review.","e":"https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access"},{"n":"GoHighLevel","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API with an OAuth-based v2 API and public endpoints.","bl":"","e":"https://developers.gohighlevel.com/"},{"n":"Mailchimp","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API with broad coverage across marketing lists, campaigns, ecommerce stores, and automations.","bl":"","e":"https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2/"},{"n":"Klaviyo","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["oauth2","api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API covering many marketing and ecommerce resources.","bl":"","e":"https://developers.klaviyo.com/en/docs/set_up_oauth"},{"n":"systeme.io","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":"unknown","s":"REST API to manage contacts, tags, and other core platform resources.","bl":"","e":"https://developer.systeme.io/reference/api"},{"n":"Pinterest","c":"Marketing, Ads, Email and Social","a":"trial","au":["oauth2"],"b":"needs-outreach","k":true,"m":"unknown","s":"REST API with a broad set of resources covering ads, content management, shopping, analytics, and conversion tracking.","bl":"Application requests require manual review before getting trial access.","e":"https://developers.pinterest.com/docs/getting-started/authentication/"},{"n":"Threads (Meta)","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["oauth2"],"b":"easy","k":false,"m":"unknown","s":"Broad REST API supporting authentication, content publishing, replies, and insights.","bl":"","e":"https://developers.facebook.com/docs/threads/get-started/"},{"n":"SendGrid","c":"Marketing, Ads, Email and Social","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"REST API with multiple v3 endpoints for managing services like API keys, mail sending, and account provisioning.","bl":"","e":"https://docs.sendgrid.com/api-reference/api-keys/update-api-key-name-and-scopes"},{"n":"Shopify","c":"Ecommerce","a":"self-serve","au":["oauth2","api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad REST and GraphQL APIs covering admin and storefront resources.","bl":"","e":"https://shopify.dev/docs/api/usage/authentication"},{"n":"WooCommerce","c":"Ecommerce","a":"self-serve","au":["api-key","basic","oauth1.0a"],"b":"easy","k":false,"m":"unknown","s":"REST API v3 supporting standard HTTP methods for managing ecommerce resources such as orders and products.","bl":"","e":"https://developer.woocommerce.com/docs/apis/rest-api/authentication/"},{"n":"BigCommerce","c":"Ecommerce","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":"unknown","s":"REST and GraphQL APIs, broad breadth spanning catalog, orders, customers, content, and management resources.","bl":"","e":"https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts"},{"n":"Salesforce Commerce Cloud","c":"Ecommerce","a":"gated","au":["oauth2","jwt","basic"],"b":"needs-outreach","k":true,"m":true,"s":"Broad REST API supporting Admin and Shopper endpoints through Salesforce Commerce API (SCAPI).","bl":"Requires Salesforce partnership, account setup, or enterprise access.","e":"https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization.html"},{"n":"Adobe Commerce (Magento)","c":"Ecommerce","a":"self-serve","au":["bearer","oauth"],"b":"easy","k":true,"m":"unknown","s":"Broad REST and SOAP web API covering comprehensive ecommerce operations and resources.","bl":"","e":"https://developer.adobe.com/commerce/webapi/get-started/authentication/gs-authentication-token"},{"n":"Squarespace","c":"Ecommerce","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API covering commerce resources such as orders, inventory, products, contacts, and discounts.","bl":"","e":"https://developers.squarespace.com/commerce-apis/authentication-and-permissions"},{"n":"Ecwid","c":"Ecommerce","a":"self-serve","au":["oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API covering store data, products, orders, customers, categories, and discounts.","bl":"","e":"https://docs.ecwid.com/get-started/make-your-first-api-request"},{"n":"Gumroad","c":"Ecommerce","a":"self-serve","au":["oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API with OAuth 2.0 covering products, sales, subscribers, licenses, and webhooks.","bl":"","e":"https://www.mintlify.com/antiwork/gumroad/api/authentication"},{"n":"Amazon Selling Partner","c":"Ecommerce","a":"gated","au":["oauth2"],"b":"needs-outreach","k":true,"m":"unknown","s":"REST API with broad coverage of Amazon store management resources.","bl":"Production access and application registration require approval and verification.","e":"https://developer-docs.amazon.com/sp-api/docs/authorizing-selling-partner-api-applications"},{"n":"fanbasis","c":"Ecommerce","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":true,"s":"REST API with endpoints covering checkout sessions, customers, subscribers, discount codes, products, transactions, refunds, and webhooks.","bl":"","e":"https://github.com/subtain-haider/laravel-payments/blob/main/docs/gateways/fanbasis.md"},{"n":"DataForSEO","c":"Data, SEO and Scraping","a":"self-serve","au":["basic"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API supporting JSON, XML, and HTML responses.","bl":"","e":"https://docs.dataforseo.com/v3/auth/"},{"n":"SE Ranking","c":"Data, SEO and Scraping","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":"unknown","s":"Broad REST API covering data, backlinks, keywords, site audits, and project management.","bl":"","e":"https://seranking.com/api/data/getting-started/"},{"n":"Ahrefs","c":"Data, SEO and Scraping","a":"gated","au":["oauth2"],"b":"needs-outreach","k":true,"m":"unknown","s":"REST API with public and authenticated v3 endpoints.","bl":"Production credentials require an approval process.","e":"https://docs.ahrefs.com/ahrefs-connect/docs/oauth-guide.md"},{"n":"MrScraper","c":"Data, SEO and Scraping","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"REST API covering authentication, pagination, error handling, scraper management, and V3 platform endpoints.","bl":"","e":"https://docs.mrscraper.com/docs/api/authentication"},{"n":"Apify","c":"Data, SEO and Scraping","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"REST API with endpoints to control the Apify platform, manage actors, runs, datasets, and key-value stores.","bl":"","e":"https://docs.apify.com/integrations/api"},{"n":"Firecrawl","c":"Data, SEO and Scraping","a":"self-serve","au":["bearer"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API for scraping, crawling, and web data extraction.","bl":"","e":"https://docs.firecrawl.dev/api-reference/v2-introduction"},{"n":"Bright Data","c":"Data, SEO and Scraping","a":"self-serve","au":["api-key","basic"],"b":"easy","k":true,"m":"unknown","s":"REST API and official SDKs for Python and JavaScript covering web scraping, proxy management, and SERP extraction.","bl":"","e":"https://docs.brightdata.com/api-reference/authentication"},{"n":"Sherlock","c":"Data, SEO and Scraping","a":"self-serve","au":[],"b":"easy","k":false,"m":"unknown","s":"REST API via Django REST Framework, available as a self-hosted open source repository.","bl":"","e":"https://github.com/sherlock-project/api"},{"n":"Waterfall.io","c":"Data, SEO and Scraping","a":"gated","au":["api-key"],"b":"needs-outreach","k":false,"m":"unknown","s":"REST API with roughly 12 functional areas including prospector, enrichment, search, and verification endpoints.","bl":"API access requires an API key provided in your contract.","e":"https://docs.waterfall.io/v1/authentication"},{"n":"Clay","c":"Data, SEO and Scraping","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":"unknown","s":"REST API for running routines and functions.","bl":"","e":"https://developers.clay.com/routines/api"},{"n":"GitHub","c":"Developer, Infra and Data platforms","a":"self-serve","au":["bearer","token","oauth2","personal-access-token","basic"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API for interacting with repositories, users, organizations, and issues.","bl":"","e":"https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api"},{"n":"Vercel","c":"Developer, Infra and Data platforms","a":"self-serve","au":["bearer","api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API with a companion TypeScript SDK covering dozens of resources including deployments, domains, DNS, and logging drains.","bl":"","e":"https://vercel.com/docs/rest-api/authentication"},{"n":"Netlify","c":"Developer, Infra and Data platforms","a":"self-serve","au":["oauth2","bearer"],"b":"easy","k":false,"m":"unknown","s":"Broad REST API supporting sites, deploys, builds, environment variables, and domains.","bl":"","e":"https://developers.netlify.com/tag/api/"},{"n":"Cloudflare","c":"Developer, Infra and Data platforms","a":"self-serve","au":["api-key","bearer"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API supporting version 4 HTTPS endpoints.","bl":"","e":"https://developers.cloudflare.com/fundamentals/api/get-started/"},{"n":"Supabase","c":"Developer, Infra and Data platforms","a":"self-serve","au":["api-key","personal-access-token","oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API, broad management and project API surface.","bl":"","e":"https://supabase.com/docs/guides/getting-started/api-keys"},{"n":"Neo4j","c":"Developer, Infra and Data platforms","a":"self-serve","au":["basic","bearer"],"b":"easy","k":true,"m":"unknown","s":"REST API via query and HTTP endpoints for interacting with graph data.","bl":"","e":"https://neo4j.com/docs/query-api/current/authentication-authorization/"},{"n":"Snowflake","c":"Developer, Infra and Data platforms","a":"self-serve","au":["jwt","oauth2","personal-access-token"],"b":"easy","k":true,"m":"unknown","s":"REST API and SQL API for accessing data resources and databases.","bl":"","e":"https://docs.snowflake.com/en/en/developer-guide/snowflake-rest-api/reference"},{"n":"MongoDB Atlas","c":"Developer, Infra and Data platforms","a":"self-serve","au":["basic","oauth2"],"b":"easy","k":false,"m":"unknown","s":"Broad REST API supporting OAuth2 service accounts and HTTP digest-based programmatic API keys for managing MongoDB Atlas resources.","bl":"","e":"https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/authentication"},{"n":"Datadog","c":"Developer, Infra and Data platforms","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad HTTP REST API with official client libraries across multiple languages.","bl":"","e":"https://docs.datadoghq.com/api/latest/authentication/"},{"n":"Sentry","c":"Developer, Infra and Data platforms","a":"self-serve","au":["bearer","api-key","oauth2","basic"],"b":"easy","k":true,"m":"unknown","s":"REST API with endpoints for organizations, projects, teams, members, issues, events, and releases.","bl":"","e":"https://docs.sentry.io/api/auth/"},{"n":"Notion","c":"Productivity and Project Management","a":"self-serve","au":["bearer","oauth2","personal-access-token","basic"],"b":"easy","k":true,"m":"unknown","s":"REST API covering broad resources such as databases, pages, blocks, users, and comments.","bl":"","e":"https://developers.notion.com/reference/authentication"},{"n":"Airtable","c":"Productivity and Project Management","a":"self-serve","au":["personal-access-token","oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API with broad coverage of records, bases, tables, and metadata.","bl":"","e":"https://airtable.com/developers/web/api/authentication"},{"n":"Linear","c":"Productivity and Project Management","a":"self-serve","au":["oauth2","api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad GraphQL API covering issues, projects, teams, and comments.","bl":"","e":"https://linear.app/developers/oauth-2-0-authentication"},{"n":"Jira","c":"Productivity and Project Management","a":"self-serve","au":["oauth2","basic","jwt"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API (v2 and v3) covering issues, projects, workflows, and administrative settings.","bl":"","e":"https://developer.atlassian.com/cloud/jira/platform/scopes-for-oauth-2-3LO-and-forge-apps/"},{"n":"Asana","c":"Productivity and Project Management","a":"self-serve","au":["oauth2","personal-access-token"],"b":"easy","k":true,"m":"unknown","s":"REST API with broad coverage of Asana resources.","bl":"","e":"https://developers.asana.com/docs/authentication"},{"n":"Monday.com","c":"Productivity and Project Management","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":true,"m":"unknown","s":"Broad GraphQL API via a single endpoint.","bl":"","e":"https://developer.monday.com/api-reference/docs/getting-started"},{"n":"ClickUp","c":"Productivity and Project Management","a":"self-serve","au":["personal-access-token","oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API with an OpenAPI specification providing broad access to ClickUp resources.","bl":"","e":"https://developer.clickup.com/docs/authentication"},{"n":"Coda","c":"Productivity and Project Management","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API supporting documents, tables, columns, rows, and account functions.","bl":"","e":"https://coda.io/@oleg/getting-started-guide-coda-api"},{"n":"Smartsheet","c":"Productivity and Project Management","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":false,"m":"unknown","s":"REST API covering core features like sheets, rows, columns, cells, and automated workflows.","bl":"","e":"https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication"},{"n":"Harvest","c":"Productivity and Project Management","a":"self-serve","au":["oauth2","personal-access-token"],"b":"easy","k":true,"m":"unknown","s":"REST API with comprehensive coverage of Harvest resources including time tracking, projects, clients, and invoices.","bl":"","e":"https://github.com/harvesthq/api/blob/master/Authentication/OAuth%202.0.md"},{"n":"Stripe","c":"Finance and Fintech","a":"self-serve","au":["api-key","oauth2","basic"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API with extensive resources for charges, customers, subscriptions, and billing.","bl":"","e":"https://docs.stripe.com/api/authentication"},{"n":"Plaid","c":"Finance and Fintech","a":"self-serve","au":["api-key","oauth2"],"b":"easy","k":false,"m":false,"s":"Broad REST API over JSON with multiple endpoints and webhooks.","bl":"","e":"https://plaid.com/docs/api/"},{"n":"Binance","c":"Finance and Fintech","a":"gated","au":["api-key","oauth2"],"b":"needs-outreach","k":false,"m":"unknown","s":"Broad REST and WebSocket APIs covering spot trading, futures, and market data.","bl":"Binance Login (OAuth2.0) is exclusively offered to close ecosystem partners.","e":"https://developers.binance.com/en/docs/catalog/core-trading-spot-trading/api/ws-api/auth"},{"n":"Paygent Connect","c":"Finance and Fintech","a":"self-serve","au":["bearer"],"b":"easy","k":false,"m":"unknown","s":"REST API with endpoints for products, configuration, users, usage tracking, and batch events.","bl":"","e":"https://docs.paygent.to/reference/api-reference/"},{"n":"iPayX","c":"Finance and Fintech","a":"gated","au":["basic"],"b":"needs-outreach","k":false,"m":"unknown","s":"REST API with multiple resources including transaction, provisioning, and pay-by-link APIs.","bl":"Certain APIs like provisioning require contacting sales or customer success.","e":"https://documentation.ixopay.com/api/transaction/transaction-api"},{"n":"QuickBooks","c":"Finance and Fintech","a":"self-serve","au":["oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API with broad coverage of accounting and financial data resources.","bl":"","e":"https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization"},{"n":"Xero","c":"Finance and Fintech","a":"self-serve","au":["oauth2"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API accessible via OAuth 2.0 with OpenAPI specifications available.","bl":"","e":"https://developer.xero.com/faq/getting-started"},{"n":"Brex","c":"Finance and Fintech","a":"self-serve","au":["bearer","oauth2"],"b":"easy","k":true,"m":"unknown","s":"Broad REST API covering cash accounts, cards, vendors, and transfers.","bl":"","e":"https://developer.brex.com/docs/faq"},{"n":"Ramp","c":"Finance and Fintech","a":"trial","au":["oauth2","basic"],"b":"needs-outreach","k":true,"m":"unknown","s":"Broad REST API supporting cards, transactions, users, and accounting resources.","bl":"Assumes you are a Ramp customer and sandbox access must be requested.","e":"https://docs.ramp.com/developer-api/v1/api/authorization"},{"n":"PitchBook","c":"Finance and Fintech","a":"gated","au":["oauth2"],"b":"needs-outreach","k":false,"m":true,"s":"Model Context Protocol server and enterprise direct data feeds.","bl":"Requires a PitchBook seat-based or trial license and sales outreach.","e":"https://mcp-proxy-external.pitchbook.com/"},{"n":"NotebookLM","c":"AI, Research and Media-native","a":"self-serve","au":["browser-cookies"],"b":"easy","k":false,"m":true,"s":"Python library and CLI wrapping unofficial internal endpoints and browser authentication, exposing notebook CRUD, sources, and artifacts.","bl":"","e":"https://github.com/Robiton/notebooklm-mcp-cli/blob/main/docs/AUTHENTICATION.md"},{"n":"Otter AI","c":"AI, Research and Media-native","a":"gated","au":["bearer"],"b":"needs-outreach","k":false,"m":"unknown","s":"REST API with endpoints for channels, conversations, transcripts, audio, and webhooks.","bl":"Public API is only available for Enterprise workspaces or via contact.","e":"https://docs.otterly.ai/authentication"},{"n":"Fathom","c":"AI, Research and Media-native","a":"self-serve","au":["api-key","bearer","oauth2"],"b":"easy","k":true,"m":"unknown","s":"REST API and official TypeScript and Python SDKs supporting authentication, meetings, and webhooks.","bl":"","e":"https://developers.fathom.ai/sdks/authentication"},{"n":"Consensus","c":"AI, Research and Media-native","a":"gated","au":["api-key","oauth2"],"b":"needs-outreach","k":true,"m":true,"s":"REST API with endpoint documentation for quick search and an MCP server.","bl":"API key access requires enterprise sales contact.","e":"https://docs.consensus.app/docs/mcp"},{"n":"Reducto","c":"AI, Research and Media-native","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":"unknown","s":"REST API with SDK support for parsing, extracting, splitting, editing, and classifying documents.","bl":"","e":"https://docs.reducto.ai/reference/error-codes"},{"n":"Devin","c":"AI, Research and Media-native","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":true,"s":"Broad REST API via OpenAPI/FastAPI.","bl":"","e":"https://api.devin.ai/docs"},{"n":"higgsfield","c":"AI, Research and Media-native","a":"self-serve","au":["api-key"],"b":"easy","k":false,"m":"unknown","s":"REST API with asynchronous request lifecycle for generating media models.","bl":"","e":"https://docs.higgsfield.ai/docs/how-to/introduction"},{"n":"Mermaid CLI","c":"AI, Research and Media-native","a":"gated","au":["oauth2","jwt"],"b":"needs-outreach","k":false,"m":"unknown","s":"REST API with secure endpoints for coral reef data management.","bl":"Credentials must be requested from the MERMAID team.","e":"https://github.com/data-mermaid/mermaid-api/blob/master/docs/source/authentication.rst"},{"n":"YouTube Transcript","c":"AI, Research and Media-native","a":"self-serve","au":["api-key"],"b":"easy","k":true,"m":"unknown","s":"REST API with endpoints for extracting transcripts, getting video info, searching YouTube and channels, resolving handles, and listing uploads or playlist videos.","bl":"","e":"https://transcriptapi.com/docs/api/"},{"n":"Grain","c":"AI, Research and Media-native","a":"gated","au":["api-key","oauth2"],"b":"needs-outreach","k":false,"m":"unknown","s":"Broad REST API supporting recordings, transcripts, webhooks, tags, and user/team management.","bl":"Developer access is limited to select partners; outreach to support required.","e":"https://docs.nango.dev/docs/integrations/all/grain-api-key"}];
+const $ = id => document.getElementById(id);
+const tbody = $('tbody');
+const els = { access:$('fAccess'), auth:$('fAuth'), build:$('fBuild'), kit:$('fKit'), q:$('q') };
+let cat = '';
+
+const tri = v => v === true ? '<span class="yes">yes</span>' : v === false ? '<span class="no">no</span>' : '<span class="unk">&ndash;</span>';
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function render(){
+  const ac = els.access.value, au = els.auth.value, bu = els.build.value,
+        ki = els.kit.value, q = els.q.value.trim().toLowerCase();
+
+  const rows = DATA.filter(d =>
+    (!cat || d.c === cat) &&
+    (!ac  || d.a === ac) &&
+    (!au  || d.au.some(x => x.toLowerCase().includes(au))) &&
+    (!bu  || d.b === bu) &&
+    (!ki  || String(d.k) === ki) &&
+    (!q   || (d.n + ' ' + d.s + ' ' + d.bl).toLowerCase().includes(q))
+  );
+
+  tbody.innerHTML = rows.map((d, i) => `<tr>
+    <td class="idx">${i + 1}</td>
+    <td class="name">${esc(d.n)}</td>
+    <td class="cat">${esc(d.c)}</td>
+    <td><span class="pill ${d.a}">${d.a}</span></td>
+    <td class="auth">${d.au.length ? esc(d.au.join(', ')) : '&ndash;'}</td>
+    <td><span class="pill ${d.b}">${d.b}</span></td>
+    <td>${tri(d.k)}</td>
+    <td>${tri(d.m)}</td>
+    <td class="surface">${esc(d.s)}</td>
+    <td>${d.e ? '<a href="' + esc(d.e) + '" rel="noopener">source</a>' : '&ndash;'}</td>
+  </tr>`).join('');
+
+  $('count').textContent = 'Showing ' + rows.length + ' of ' + DATA.length;
+}
+
+$('chips').addEventListener('click', e => {
+  const b = e.target.closest('.chip');
+  if (!b) return;
+  cat = b.dataset.cat;
+  document.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c === b));
+  render();
+});
+Object.values(els).forEach(el => el.addEventListener('input', render));
+render();
+</script>
+</body>
+</html>
