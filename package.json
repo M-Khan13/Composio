@@ -1,0 +1,26 @@
+{
+  "name": "app-api-research-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An agent that researches 100 apps for agent-toolkit buildability, built with Composio + Gemini.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "research": "tsx src/research.ts",
+    "run:all": "tsx src/runAll.ts",
+    "analyze": "tsx src/analyze.ts",
+    "score": "tsx src/scoreAccuracy.ts",
+    "site": "npx --yes serve site"
+  },
+  "dependencies": {
+    "@composio/core": "^0.16.0",
+    "@google/genai": "^2.17.1",
+    "dotenv": "^17.4.2",
+    "p-limit": "^7.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}

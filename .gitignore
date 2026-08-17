@@ -1,0 +1,39 @@
+# --- secrets: never commit ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+.claude
+
+# --- raw agent output that can contain keys / tokens scraped from pages ---
+# rows.json / patterns.json / accuracy.json ARE committed (the site reads them).
+# Anything below is unreviewed raw material and stays local.
+.cache/
+results/raw/
+results/**/raw/
+*.dump.json
+*.raw.json
+results/debug*.json
+
+# --- deps / build ---
+node_modules/
+dist/
+build/
+.tsbuildinfo
+*.tsbuildinfo
+
+# --- tooling ---
+.vercel/
+.next/
+coverage/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- os / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+*.swp
