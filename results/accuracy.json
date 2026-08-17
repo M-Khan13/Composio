@@ -1,0 +1,684 @@
+{
+  "generated_at": "2026-08-17T20:23:50.489Z",
+  "sample_size": 18,
+  "sampling": "deliberately over-weighted toward hard access cases; this is a worst-case accuracy, not an average",
+  "judgements_reviewed": 90,
+  "overall": {
+    "pass1_accuracy": 0.344,
+    "pass2_accuracy": 0.544,
+    "delta": 0.2
+  },
+  "per_field": [
+    {
+      "field": "access",
+      "reviewed": 18,
+      "pass1_correct": 13,
+      "pass2_correct": 12,
+      "pass1_accuracy": 0.722,
+      "pass2_accuracy": 0.667,
+      "delta": -0.056
+    },
+    {
+      "field": "auth_methods",
+      "reviewed": 18,
+      "pass1_correct": 5,
+      "pass2_correct": 5,
+      "pass1_accuracy": 0.278,
+      "pass2_accuracy": 0.278,
+      "delta": 0
+    },
+    {
+      "field": "has_mcp",
+      "reviewed": 18,
+      "pass1_correct": 1,
+      "pass2_correct": 3,
+      "pass1_accuracy": 0.056,
+      "pass2_accuracy": 0.167,
+      "delta": 0.111
+    },
+    {
+      "field": "buildability",
+      "reviewed": 18,
+      "pass1_correct": 12,
+      "pass2_correct": 14,
+      "pass1_accuracy": 0.667,
+      "pass2_accuracy": 0.778,
+      "delta": 0.111
+    },
+    {
+      "field": "composio_toolkit_exists",
+      "reviewed": 18,
+      "pass1_correct": 0,
+      "pass2_correct": 15,
+      "pass1_accuracy": 0,
+      "pass2_accuracy": 0.833,
+      "delta": 0.833
+    }
+  ],
+  "weakest_field": "has_mcp",
+  "fixed_by_pass2": 28,
+  "still_wrong_after_pass2": 41,
+  "misses": [
+    {
+      "id": "plaid",
+      "name": "Plaid",
+      "field": "access",
+      "truth": "trial",
+      "pass1": "trial",
+      "pass2": "self-serve",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "dealcloud",
+      "name": "DealCloud",
+      "field": "access",
+      "truth": "gated",
+      "pass1": "gated",
+      "pass2": "self-serve",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "field": "access",
+      "truth": "self-serve",
+      "pass1": "self-serve",
+      "pass2": "gated",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "mermaid-cli",
+      "name": "Mermaid CLI",
+      "field": "access",
+      "truth": "self-serve",
+      "pass1": "self-serve",
+      "pass2": "gated",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "sherlock",
+      "name": "Sherlock",
+      "field": "access",
+      "truth": "self-serve",
+      "pass1": "gated",
+      "pass2": "self-serve",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "ramp",
+      "name": "Ramp",
+      "field": "access",
+      "truth": "gated",
+      "pass1": "self-serve",
+      "pass2": "trial",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "paygent-connect",
+      "name": "Paygent Connect",
+      "field": "access",
+      "truth": "self-serve",
+      "pass1": "gated",
+      "pass2": "self-serve",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "waterfall",
+      "name": "Waterfall.io",
+      "field": "access",
+      "truth": "gated",
+      "pass1": "self-serve",
+      "pass2": "gated",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "grain",
+      "name": "Grain",
+      "field": "access",
+      "truth": "self-serve",
+      "pass1": "gated",
+      "pass2": "gated",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "plaid",
+      "name": "Plaid",
+      "field": "auth_methods",
+      "truth": "api-key",
+      "pass1": "api-key",
+      "pass2": "api-key|oauth2",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "amazon-sp-api",
+      "name": "Amazon Selling Partner",
+      "field": "auth_methods",
+      "truth": "oauth2",
+      "pass1": "api-key|oauth2",
+      "pass2": "oauth2",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "pitchbook",
+      "name": "PitchBook",
+      "field": "auth_methods",
+      "truth": "api-key",
+      "pass1": "(none)",
+      "pass2": "oauth2",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "dealcloud",
+      "name": "DealCloud",
+      "field": "auth_methods",
+      "truth": "oauth2",
+      "pass1": "api-key|oauth2",
+      "pass2": "api-key|oauth2",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "field": "auth_methods",
+      "truth": "api-key",
+      "pass1": "api-key|oauth2",
+      "pass2": "api-key|oauth2",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "mermaid-cli",
+      "name": "Mermaid CLI",
+      "field": "auth_methods",
+      "truth": "none",
+      "pass1": "(none)",
+      "pass2": "oauth2|token",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "sherlock",
+      "name": "Sherlock",
+      "field": "auth_methods",
+      "truth": "none",
+      "pass1": "(none)",
+      "pass2": "(none)",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "ipayx",
+      "name": "iPayX",
+      "field": "auth_methods",
+      "truth": "api-key",
+      "pass1": "api-key",
+      "pass2": "basic",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "ramp",
+      "name": "Ramp",
+      "field": "auth_methods",
+      "truth": "oauth2",
+      "pass1": "api-key|oauth2",
+      "pass2": "basic|oauth2",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "paygent-connect",
+      "name": "Paygent Connect",
+      "field": "auth_methods",
+      "truth": "other",
+      "pass1": "(none)",
+      "pass2": "token",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "gladly",
+      "name": "Gladly",
+      "field": "auth_methods",
+      "truth": "basic",
+      "pass1": "api-key",
+      "pass2": "basic",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "otter-ai",
+      "name": "Otter AI",
+      "field": "auth_methods",
+      "truth": "oauth2|token",
+      "pass1": "(none)",
+      "pass2": "token",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "grain",
+      "name": "Grain",
+      "field": "auth_methods",
+      "truth": "token",
+      "pass1": "api-key",
+      "pass2": "api-key|oauth2",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "salesforce-commerce-cloud",
+      "name": "Salesforce Commerce Cloud",
+      "field": "auth_methods",
+      "truth": "oauth2|token",
+      "pass1": "oauth2",
+      "pass2": "basic|oauth2|token",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "fathom",
+      "name": "Fathom",
+      "field": "auth_methods",
+      "truth": "api-key",
+      "pass1": "oauth2",
+      "pass2": "api-key|oauth2|token",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "plaid",
+      "name": "Plaid",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "amazon-sp-api",
+      "name": "Amazon Selling Partner",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "pitchbook",
+      "name": "PitchBook",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "dealcloud",
+      "name": "DealCloud",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "mermaid-cli",
+      "name": "Mermaid CLI",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "sherlock",
+      "name": "Sherlock",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "ipayx",
+      "name": "iPayX",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "true",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "ramp",
+      "name": "Ramp",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "paygent-connect",
+      "name": "Paygent Connect",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "gladly",
+      "name": "Gladly",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "waterfall",
+      "name": "Waterfall.io",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "otter-ai",
+      "name": "Otter AI",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "grain",
+      "name": "Grain",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "salesforce-commerce-cloud",
+      "name": "Salesforce Commerce Cloud",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "youtube-transcript",
+      "name": "YouTube Transcript",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "fathom",
+      "name": "Fathom",
+      "field": "has_mcp",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "harvest",
+      "name": "Harvest",
+      "field": "has_mcp",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "unknown",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "plaid",
+      "name": "Plaid",
+      "field": "buildability",
+      "truth": "easy",
+      "pass1": "needs-outreach",
+      "pass2": "easy",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "dealcloud",
+      "name": "DealCloud",
+      "field": "buildability",
+      "truth": "needs-outreach",
+      "pass1": "needs-outreach",
+      "pass2": "easy",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "field": "buildability",
+      "truth": "easy",
+      "pass1": "easy",
+      "pass2": "needs-outreach",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "mermaid-cli",
+      "name": "Mermaid CLI",
+      "field": "buildability",
+      "truth": "easy",
+      "pass1": "easy",
+      "pass2": "needs-outreach",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "sherlock",
+      "name": "Sherlock",
+      "field": "buildability",
+      "truth": "easy",
+      "pass1": "needs-outreach",
+      "pass2": "easy",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "ramp",
+      "name": "Ramp",
+      "field": "buildability",
+      "truth": "needs-outreach",
+      "pass1": "easy",
+      "pass2": "needs-outreach",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "paygent-connect",
+      "name": "Paygent Connect",
+      "field": "buildability",
+      "truth": "easy",
+      "pass1": "needs-outreach",
+      "pass2": "easy",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "waterfall",
+      "name": "Waterfall.io",
+      "field": "buildability",
+      "truth": "needs-outreach",
+      "pass1": "easy",
+      "pass2": "needs-outreach",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "grain",
+      "name": "Grain",
+      "field": "buildability",
+      "truth": "easy",
+      "pass1": "needs-outreach",
+      "pass2": "needs-outreach",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "plaid",
+      "name": "Plaid",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "amazon-sp-api",
+      "name": "Amazon Selling Partner",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "pitchbook",
+      "name": "PitchBook",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "dealcloud",
+      "name": "DealCloud",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "binance",
+      "name": "Binance",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "mermaid-cli",
+      "name": "Mermaid CLI",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "sherlock",
+      "name": "Sherlock",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "ipayx",
+      "name": "iPayX",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "ramp",
+      "name": "Ramp",
+      "field": "composio_toolkit_exists",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "paygent-connect",
+      "name": "Paygent Connect",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "gladly",
+      "name": "Gladly",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "waterfall",
+      "name": "Waterfall.io",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "otter-ai",
+      "name": "Otter AI",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "grain",
+      "name": "Grain",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "false",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "salesforce-commerce-cloud",
+      "name": "Salesforce Commerce Cloud",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "youtube-transcript",
+      "name": "YouTube Transcript",
+      "field": "composio_toolkit_exists",
+      "truth": "false",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": false
+    },
+    {
+      "id": "fathom",
+      "name": "Fathom",
+      "field": "composio_toolkit_exists",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": true
+    },
+    {
+      "id": "harvest",
+      "name": "Harvest",
+      "field": "composio_toolkit_exists",
+      "truth": "true",
+      "pass1": "unknown",
+      "pass2": "true",
+      "fixed_by_pass2": true
+    }
+  ]
+}

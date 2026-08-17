@@ -11,7 +11,8 @@
     "analyze": "tsx src/analyze.ts",
     "score": "tsx src/scoreAccuracy.ts",
     "site": "npx --yes serve site",
-    "discover": "tsx src/discover.ts"
+    "discover": "tsx src/discover.ts",
+    "sample": "tsx src/makeReviewSample.ts"
   },
   "dependencies": {
     "@composio/core": "^0.16.0",

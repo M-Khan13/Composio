@@ -1,0 +1,2817 @@
+[
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "category": "CRM and Sales",
+    "one_liner": "Salesforce provides a customer relationship management platform with a broad suite of APIs for data and object management.",
+    "auth_methods": [
+      "oauth2",
+      "jwt",
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST, SOAP, and streaming APIs covering hundreds of platform objects and resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/sforce_rest_api.htm",
+      "https://help.salesforce.com/s/articleView?id=remoteaccess_oauth_tokens_scopes.htm&language=en_US&type=5",
+      "https://developer.salesforce.com/docs/apis"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:14:13.878Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "hubspot",
+    "name": "HubSpot",
+    "category": "CRM and Sales",
+    "one_liner": "HubSpot provides a developer platform and APIs for building applications and integrations that access CRM data.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering CRM and related objects via developer apps and authentication.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/overview",
+      "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/authentication/oauth/working-with-oauth",
+      "https://developers.hubspot.com/docs/apps/developer-platform/overview"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:14:19.396Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "pipedrive",
+    "name": "Pipedrive",
+    "category": "CRM and Sales",
+    "one_liner": "Pipedrive provides a CRM and sales pipeline management platform with a public API.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API covering broad CRM resources such as deals, leads, organizations, and persons.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://pipedrive.readme.io/docs/core-api-concepts-authentication",
+      "https://developers.pipedrive.com/docs/api/v1",
+      "https://pipedrive.readme.io/docs/how-to-find-the-api-token"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:14:27.316Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "attio",
+    "name": "Attio",
+    "category": "CRM and Sales",
+    "one_liner": "Attio provides a flexible CRM platform with a public API for managing workspace data.",
+    "auth_methods": [
+      "api-key",
+      "oauth2",
+      "bearer"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API and server SDKs providing comprehensive access to CRM resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.attio.com/rest-api/guides/authentication",
+      "https://attio.com/help/reference/apps/generating-an-api-key",
+      "https://docs.attio.com/rest-api/overview"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:06.162Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "twenty",
+    "name": "Twenty",
+    "category": "CRM and Sales",
+    "one_liner": "Twenty is an open-source CRM that provides developer extensibility and APIs.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API for interacting with the CRM resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.twenty.com/developers/extend/api",
+      "https://twentyhq-twenty.mintlify.app/developers/api/authentication",
+      "https://docs.twenty.com/developers/extend/oauth"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:10.501Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "podio",
+    "name": "Podio",
+    "category": "CRM and Sales",
+    "one_liner": "Podio provides a REST API for managing work, tasks, apps, and communication within the Podio platform.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with available OpenAPI specification and client SDKs across multiple languages.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://apis.io/apis/podio/rest-api/",
+      "https://raw.githubusercontent.com/api-evangelist/podio/refs/heads/main/openapi/podio-oauth-api-openapi.yml",
+      "https://podio.github.io/podio-js/authentication/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:18.273Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "zoho-crm",
+    "name": "Zoho CRM",
+    "category": "CRM and Sales",
+    "one_liner": "Zoho CRM provides a developer platform and API to access and manage CRM data programmatically.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with broad coverage across multiple versions including V8.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+      "https://www.zoho.com/crm/developer/docs/api/v8/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:26.087Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "close",
+    "name": "Close",
+    "category": "CRM and Sales",
+    "one_liner": "Close provides a CRM platform with developer tools for managing sales data via an API.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple resources like phone numbers and events.",
+    "has_mcp": true,
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.close.com/api/overview",
+      "https://help.close.com/docs/api-keys-oauth",
+      "https://help.close.com/docs/mcp-server"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:33.876Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "copper",
+    "name": "Copper",
+    "category": "CRM and Sales",
+    "one_liner": "Copper provides a CRM platform with an API for managing contacts, companies, opportunities, and other CRM resources.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API supporting authentication via API key and OAuth2.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.copper.com/introduction/authentication.html",
+      "https://developer.copper.co/api-reference/create-api-key",
+      "https://developer.copper.com/introduction/oauth/quickstart.html"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:41.722Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "dealcloud",
+    "name": "DealCloud",
+    "category": "CRM and Sales",
+    "one_liner": "DealCloud provides a CRM and deal management platform with data APIs for managing records.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API with data and authentication resources, supported by Python and C# SDKs.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Credentials require sales or enterprise tier access to obtain.",
+    "evidence_urls": [
+      "https://api.docs.dealcloud.com/docs/token",
+      "https://api.docs.dealcloud.com/docs/apikeys",
+      "https://api.docs.dealcloud.com/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:49.570Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "zendesk",
+    "name": "Zendesk",
+    "category": "Support and Helpdesk",
+    "one_liner": "Zendesk provides customer service software and a support ticketing platform.",
+    "auth_methods": [
+      "api-key",
+      "oauth2",
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API for managing support tickets, users, and helpdesk resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+      "https://developer.zendesk.com/documentation/authentication/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:17:57.438Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "intercom",
+    "name": "Intercom",
+    "category": "Support and Helpdesk",
+    "one_liner": "Intercom provides a customer service platform with developer tools for managing contacts, conversations, and help desk operations.",
+    "auth_methods": [
+      "oauth2",
+      "personal-access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with broad coverage for managing Intercom workspace resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+      "https://developers.intercom.com/docs/references/rest-api/api.intercom.io",
+      "https://intercom-developer-hub.readme.io/docs/personal-access-tokens"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:18:05.203Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "freshdesk",
+    "name": "Freshdesk",
+    "category": "Support and Helpdesk",
+    "one_liner": "Freshdesk provides a help desk platform with a developer API for managing support tickets and resources.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API and SDK for managing helpdesk resources such as tickets.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.freshdesk.com/api/",
+      "https://support.freshdesk.com/support/solutions/articles/225435-where-can-i-find-my-api-key-"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:18:13.131Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "front",
+    "name": "Front",
+    "category": "Support and Helpdesk",
+    "one_liner": "Front is a customer operations platform that provides a public REST API for managing communications and shared inboxes.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering core customer communication workflows.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://dev.frontapp.com/docs/authentication",
+      "https://dev.frontapp.com/docs/core-api-getting-started",
+      "https://dev.frontapp.com/docs/oauth"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:18:20.861Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "pylon",
+    "name": "Pylon",
+    "category": "Support and Helpdesk",
+    "one_liner": "Pylon provides a developer API for managing customer support operations and data.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple resources like accounts.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+      "https://app.getpylon.com/docs/api",
+      "https://support.usepylon.com/articles/4735104435-how-do-i-create-an-api-token"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:18:28.739Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "liveagent",
+    "name": "LiveAgent",
+    "category": "Support and Helpdesk",
+    "one_liner": "LiveAgent provides helpdesk and customer support software with API support for managing tickets and agent interactions.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple versions (v1 and v3) covering comprehensive helpdesk resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://support.liveagent.com/741982-API-key",
+      "https://support.liveagent.com/840770-Complete-API-reference",
+      "https://support.liveagent.com/911737-API-v3"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:18:36.761Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "plain",
+    "name": "Plain",
+    "category": "Support and Helpdesk",
+    "one_liner": "Plain provides support and helpdesk tools with developer APIs for building support integrations.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API for managing support resources and machine users.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://help.plain.com/article/api-quickstart",
+      "https://www.plain.com/docs/agents/machine-users",
+      "https://help.plain.com/article/creating-api-keys"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:18:44.622Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "helpscout",
+    "name": "Help Scout",
+    "category": "Support and Helpdesk",
+    "one_liner": "Help Scout provides customer support software with APIs for managing mailboxes, conversations, and documentation.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple resources covering Mailbox and Docs functionality.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.helpscout.com/mailbox-api/",
+      "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+      "https://developer.helpscout.com/docs-api/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:18:52.661Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "gorgias",
+    "name": "Gorgias",
+    "category": "Support and Helpdesk",
+    "one_liner": "Gorgias provides a helpdesk and customer support platform with a public REST API.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with a broad reference covering various support resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.gorgias.com/reference/authentication",
+      "https://docs.gorgias.com/en-US/rest-api-208286",
+      "https://developers.gorgias.com/docs/oauth2-bearer-token"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:00.408Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "gladly",
+    "name": "Gladly",
+    "category": "Support and Helpdesk",
+    "one_liner": "Gladly provides customer service and support platform capabilities with a REST API for developers.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API for interacting with the Gladly platform.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "API access requires existing account, admin permissions, and onboarding.",
+    "evidence_urls": [
+      "https://developer.gladly.com/rest/",
+      "https://help.gladly.com/docs/generate-api-tokens-and-create-webhooks"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:08.443Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "category": "Communications and Messaging",
+    "one_liner": "Slack provides tools and APIs for communication, messaging, and building integrations within workspace channels.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering web APIs, events, and bot integrations.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "http://docs.slack.dev/authentication/",
+      "https://docs.slack.dev/apis/web-api/",
+      "https://docs.slack.dev/authentication/tokens/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:16.439Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "twilio",
+    "name": "Twilio",
+    "category": "Communications and Messaging",
+    "one_liner": "Twilio provides cloud communications APIs for messaging, voice, and video functionality.",
+    "auth_methods": [
+      "api-key",
+      "oauth2",
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering messaging, voice, and other communications channels.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://www.twilio.com/docs/iam/api-keys",
+      "https://www.twilio.com/docs/iam/oauth-apps/overview",
+      "https://www.twilio.com/docs/iam/api"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:24.535Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "zoho-cliq",
+    "name": "Zoho Cliq",
+    "category": "Communications and Messaging",
+    "one_liner": "Zoho Cliq provides a communication and messaging platform with a public REST API.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple versions and documentation covering client registration and OAuth.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://www.zoho.com/cliq/help/restapi/v3/registerclient/",
+      "https://www.zoho.com/cliq/help/restapi/v3/oauth/",
+      "https://www.zoho.com/cliq/help/restapi/v3/introduction/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:32.414Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "lark",
+    "name": "Lark (Larksuite)",
+    "category": "Communications and Messaging",
+    "one_liner": "Lark provides collaboration and enterprise tools with developer access for building integrations and apps.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API for server-side and client-side integration.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://open.larksuite.com/document/ukTMukTMukTM/uMTNz4yM1MjLzUzM",
+      "https://open.larksuite.com/document/server-docs/getting-started/api-access-token/app-access-token-development-guide",
+      "https://open.larksuite.com/document/home/introduction-to-scope-and-authorization/access-credentials"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:40.251Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "pumble",
+    "name": "Pumble",
+    "category": "Communications and Messaging",
+    "one_liner": "Pumble provides team communication and messaging features with a developer API.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with an official Node SDK for accessing Pumble resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.pumble.com/#description/api-endpoints-usage",
+      "https://cake-com.github.io/pumble-node-sdk/api-client.html",
+      "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:48.331Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "discord",
+    "name": "Discord",
+    "category": "Communications and Messaging",
+    "one_liner": "Discord provides a developer platform and API to build bots, applications, and integrations for communication.",
+    "auth_methods": [
+      "oauth2",
+      "bot"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST and WebSocket API covering bots, apps, channels, and OAuth2 resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.discord.com/developers/quick-start/getting-started",
+      "https://docs.discord.com/developers/topics/oauth2",
+      "https://docs.discord.com/developers/bots/overview"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:19:56.320Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "telegram",
+    "name": "Telegram",
+    "category": "Communications and Messaging",
+    "one_liner": "Telegram provides APIs and bot platforms allowing developers to interact with the Telegram messaging service and build bots.",
+    "auth_methods": [
+      "api-key",
+      "token"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST and MTProto protocol APIs enabling user authorization, bot operations, and core messaging functions.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://core.telegram.org/api/obtaining_api_id",
+      "https://core.telegram.org/bots/api"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:04.253Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "whatsapp-business",
+    "name": "WhatsApp Business",
+    "category": "Communications and Messaging",
+    "one_liner": "Allows businesses to send and receive WhatsApp messages programmatically at scale using the Cloud API and Business Management API.",
+    "auth_methods": [
+      "oauth2",
+      "access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API supporting messaging, templates, media, and business management resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.facebook.com/docs/whatsapp/",
+      "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started/",
+      "https://developers.facebook.com/docs/whatsapp/cloud-api/reference/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:12.325Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "aircall",
+    "name": "Aircall",
+    "category": "Communications and Messaging",
+    "one_liner": "Aircall provides a cloud-based phone system and call center software with a developer API.",
+    "auth_methods": [
+      "basic",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API for managing calls and integrations.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.aircall.io/docs/authentication",
+      "https://developer.aircall.io/docs/basic-authentication",
+      "https://developer.aircall.io/docs/public-vs-private-app"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:20.130Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "vonage",
+    "name": "Vonage",
+    "category": "Communications and Messaging",
+    "one_liner": "Vonage provides communications and messaging APIs for SMS, voice, and video functionality.",
+    "auth_methods": [
+      "api-key",
+      "jwt",
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering messaging, voice, verify, and application management resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.vonage.com/en/getting-started/concepts/authentication",
+      "https://developer.vonage.com/en/getting-started/overview",
+      "https://developer.vonage.com/en/messages/technical-details"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:28.016Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "google-ads",
+    "name": "Google Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "Allows developers to manage Google Ads accounts and campaigns programmatically using the Google Ads API.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API with multiple resources for managing campaigns, ads, and reporting.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Requires a developer token and access approval.",
+    "evidence_urls": [
+      "https://developers.google.com/google-ads/api/docs/get-started/dev-token",
+      "https://developers.google.com/google-ads/api/docs/access-levels"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:35.797Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "meta-ads",
+    "name": "Meta Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "Meta Ads provides programmatic access to manage advertisements, campaigns, and ad accounts on Facebook and Instagram.",
+    "auth_methods": [
+      "oauth2",
+      "access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with a broad surface covering ad campaigns, ad sets, ads, and insights.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.facebook.com/docs/marketing-api/",
+      "https://developers.facebook.com/docs/marketing-api/get-started/authentication/",
+      "https://developers.facebook.com/docs/development/create-an-app"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:43.669Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "linkedin-ads",
+    "name": "LinkedIn Ads",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "LinkedIn Ads provides APIs to manage advertising campaigns, ads, and marketing developer platforms.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "gated",
+    "api_surface": "REST API covering marketing and advertising resources, requiring tiered access and developer application review.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Access to marketing and advertising APIs requires approval and tiered access.",
+    "evidence_urls": [
+      "https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access",
+      "https://learn.microsoft.com/en-us/linkedin/marketing/integrations/marketing-tiers?view=li-lms-2026-04",
+      "https://learn.microsoft.com/en-us/linkedin/marketing/increasing-access?view=li-lms-2026-04"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:51.444Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "gohighlevel",
+    "name": "GoHighLevel",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "GoHighLevel provides a marketing and CRM platform with API V2 support for managing agency and business operations.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API utilizing OAuth 2.0 and token authentication with public documentation on Stoplight.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://highlevel.stoplight.io",
+      "https://github.com/gohighlevel/highlevel-api-docs",
+      "https://developers.gohighlevel.com/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:20:59.559Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "mailchimp",
+    "name": "Mailchimp",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "Mailchimp provides a marketing API for managing audiences, campaigns, automation, and reports.",
+    "auth_methods": [
+      "api-key",
+      "oauth2",
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with a broad set of resources for marketing operations.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://mailchimp.com/developer/marketing/docs/fundamentals/",
+      "https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2/",
+      "https://mailchimp.com/developer/marketing/api/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:21:07.516Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "klaviyo",
+    "name": "Klaviyo",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "The provided search evidence does not contain information about Klaviyo's functionality.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "no public API",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "blocked",
+    "blocker": "No evidence or documentation was provided for Klaviyo.",
+    "evidence_urls": [
+      "https://developers.klaviyo.com"
+    ],
+    "confidence": "low",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:21:15.424Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "systeme-io",
+    "name": "systeme.io",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "Systeme.io provides a marketing automation platform with a public API to manage resources such as contacts.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API for managing contacts and other platform resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://help.systeme.io/article/2323-how-to-create-a-public-api-key-on-systeme-io",
+      "https://developer.systeme.io/reference/api"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:21:23.583Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "pinterest",
+    "name": "Pinterest",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "Pinterest provides a developer platform and API to access Pinterest data and integrate features.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API covering various Pinterest developer features and resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.pinterest.com/docs/getting-started/authentication/",
+      "https://github.com/pinterest/api-quickstart/",
+      "https://developers.pinterest.com/docs/key-concepts/access-tiers/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:21:31.519Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "threads",
+    "name": "Threads (Meta)",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "Threads API allows developers to integrate with Threads to manage content and analyze insights.",
+    "auth_methods": [
+      "oauth2",
+      "access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API providing access to Threads content management and insights.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.facebook.com/docs/threads",
+      "https://developers.facebook.com/docs/threads/get-started/",
+      "https://developers.facebook.com/docs/threads/get-started/get-access-tokens-and-permissions/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:21:39.474Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "sendgrid",
+    "name": "SendGrid",
+    "category": "Marketing, Ads, Email and Social",
+    "one_liner": "SendGrid provides a cloud-based email delivery platform and API for sending transactional and marketing emails.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API supporting email sending, account settings, and management.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+      "https://www.twilio.com/docs/sendgrid/api-reference/api-keys",
+      "https://docs.sendgrid.com/ui/account-and-settings/api-keys"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:21:47.297Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "shopify",
+    "name": "Shopify",
+    "category": "Ecommerce",
+    "one_liner": "Shopify provides APIs for developers to build applications and integrate with online stores.",
+    "auth_methods": [
+      "oauth2",
+      "access-tokens"
+    ],
+    "access": "self-serve",
+    "api_surface": "Comprehensive REST and GraphQL APIs for managing store data, apps, and resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://shopify.dev/docs/api/usage/authentication",
+      "https://shopify.dev/docs/apps/build/authentication-authorization",
+      "https://shopify.dev/docs/apps/build/dev-dashboard/get-api-access-tokens"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:21:55.144Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "woocommerce",
+    "name": "WooCommerce",
+    "category": "Ecommerce",
+    "one_liner": "WooCommerce provides a REST API and Store API for interacting with store data such as products, orders, and customers.",
+    "auth_methods": [
+      "basic",
+      "oauth1"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API covering store resources like products, orders, coupons, and customers.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.woocommerce.com/docs/apis/rest-api/",
+      "https://woocommerce.com/document/woocommerce-rest-api",
+      "https://developer.woocommerce.com/docs/apis/store-api/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:02.975Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "bigcommerce",
+    "name": "BigCommerce",
+    "category": "Ecommerce",
+    "one_liner": "BigCommerce provides REST APIs for managing store data, customers, and storefront operations.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API supporting both Admin and Storefront resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.bigcommerce.com/developer/api-reference/rest/admin/overview",
+      "https://docs.bigcommerce.com/developer/api-reference/rest/overview",
+      "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/auth"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:10.930Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "salesforce-commerce-cloud",
+    "name": "Salesforce Commerce Cloud",
+    "category": "Ecommerce",
+    "one_liner": "Salesforce Commerce Cloud provides APIs for B2C commerce including shoppper, admin, and custom API integrations.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "gated",
+    "api_surface": "REST API with broad coverage across shopper and admin B2C commerce resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Access to enterprise Salesforce B2C commerce environments and APIs typically requires partnership or sales contact.",
+    "evidence_urls": [
+      "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization.html",
+      "https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/scapi-get-started.html"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:18.719Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "adobe-commerce",
+    "name": "Adobe Commerce (Magento)",
+    "category": "Ecommerce",
+    "one_liner": "Adobe Commerce provides a comprehensive REST and SOAP API web services framework to integrate and manage e-commerce storefronts.",
+    "auth_methods": [
+      "token-based",
+      "oauth"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST and SOAP API covering extensive commerce resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.adobe.com/commerce/webapi/",
+      "https://developer.adobe.com/commerce/webapi/get-started/authentication/gs-authentication-token"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:26.700Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "squarespace",
+    "name": "Squarespace",
+    "category": "Ecommerce",
+    "one_liner": "Squarespace provides developer APIs to integrate and manage commerce, websites, and related data.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API covering commerce and website resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+      "https://developers.squarespace.com/commerce-apis/oauth",
+      "https://developers.squarespace.com/commerce-apis/making-requests"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:34.682Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "ecwid",
+    "name": "Ecwid",
+    "category": "Ecommerce",
+    "one_liner": "Ecwid provides an e-commerce platform allowing developers to build apps and integrate with stores via its API.",
+    "auth_methods": [
+      "oauth2",
+      "access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple resources covering store data, products, and orders.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://api-docs.ecwid.com/blob/master/includes/_authentication.md",
+      "https://docs.ecwid.com/get-started/make-your-first-api-request",
+      "https://docs.ecwid.com/api-reference"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:42.764Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "gumroad",
+    "name": "Gumroad",
+    "category": "Ecommerce",
+    "one_liner": "Gumroad provides a REST API that allows developers to interact with resources like products, sales, and subscribers.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API covering products, sales, and subscribers.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://www.mintlify.com/antiwork/gumroad/api/authentication",
+      "https://rollout.com/integration-guides/gumroad/api-essentials",
+      "https://apis.io/apis/gumroad/v2-api/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:50.678Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "amazon-sp-api",
+    "name": "Amazon Selling Partner",
+    "category": "Ecommerce",
+    "one_liner": "Amazon Selling Partner API provides programmatic access to Amazon store data for listing, orders, pricing, and fulfillment.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API covering broad ecommerce resources including orders, catalogs, and fulfillment.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Production access requires onboarding approval and authorization steps.",
+    "evidence_urls": [
+      "https://developer-docs.amazon.com/sp-api/docs/onboarding-step-8-call-the-sp-api-in-production",
+      "https://developer-docs.amazon.com/sp-api/docs/authorizing-selling-partner-api-applications",
+      "https://developer-docs.amazon/sp-api"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:22:58.496Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "fanbasis",
+    "name": "fanbasis",
+    "category": "Ecommerce",
+    "one_liner": "FanBasis provides creator monetization and checkout tools for digital content and services.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "SDK-only checkout integration surface.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "No self-serve public API documentation or credentials available.",
+    "evidence_urls": [
+      "https://www.npmjs.com/package/@fanbasis/checkout-sdk",
+      "https://emergent.sh/integrations/fanbasis",
+      "https://www.fanbasis.com/enterprises"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:23:06.408Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "dataforseo",
+    "name": "DataForSEO",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "DataForSEO provides SEO and digital marketing data via a programmatic API.",
+    "auth_methods": [
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API v3 covering broad SEO and search engine data resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.dataforseo.com/v3/auth/",
+      "https://docs.dataforseo.com/v3/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:23:14.297Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "se-ranking",
+    "name": "SE Ranking",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "SE Ranking provides an API to access SEO and AEO data, project management, and ranking metrics at scale.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with data and project endpoints.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://seranking.com/api/data/getting-started/",
+      "https://help.seranking.com/hc/en-us/articles/22447958135068-Getting-Started-with-SE-Ranking-s-API",
+      "https://seranking.com/api/project/getting-started/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:23:22.094Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "ahrefs",
+    "name": "Ahrefs",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "Ahrefs provides developer tools and APIs for accessing SEO and website data.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "gated",
+    "api_surface": "REST API with public reference documentation.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Approval process required for access.",
+    "evidence_urls": [
+      "https://docs.ahrefs.com/",
+      "https://docs.ahrefs.com/ahrefs-connect/docs/approval-process"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:23:30.084Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "mrscraper",
+    "name": "MrScraper",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "MrScraper allows developers to create and run web scrapers programmatically via an API.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API allowing programmatic scraper creation, execution, and management.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.mrscraper.com/docs/getting-started/api-token",
+      "https://docs.mrscraper.com/docs/api/authentication",
+      "https://docs.mrscraper.com/docs/api/overview"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:23:37.789Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "apify",
+    "name": "Apify",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "Apify provides a cloud platform and REST API for web scraping and data extraction tasks.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with broad coverage for managing actors, tasks, and datasets.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.apify.com/api/v2/getting-started",
+      "https://docs.apify.com/api",
+      "https://docs.apify.com/integrations/api"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:23:45.477Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "firecrawl",
+    "name": "Firecrawl",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "Firecrawl turns websites into markdown and structured data for AI applications.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with endpoints for scraping, searching, and crawling web content.",
+    "has_mcp": true,
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.firecrawl.dev/api-reference/v2-introduction",
+      "https://docs.firecrawl.dev/mcp-server/connect"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:23:53.200Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "brightdata",
+    "name": "Bright Data",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "Bright Data provides web data collection APIs and proxies for scraping, unlocking, and searching the web.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple endpoints covering SERP, proxy management, scraping automation, and unlockers.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.brightdata.com/api-reference/rest-api/serp/serp-api",
+      "https://docs.brightdata.com/api-reference/authentication",
+      "https://docs.brightdata.com/api-reference/SDK"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:00.920Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "sherlock",
+    "name": "Sherlock",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "Ansys Sherlock provides a developer portal and APIs for automated reliability physics analysis and electronics design.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "REST API reference documentation exists via Ansys Developer Portal.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Requires Ansys developer account access/partnership.",
+    "evidence_urls": [
+      "https://developer.ansys.com/docs/sherlock",
+      "https://developer.ansys.com/docs/sherlock-apis-2026-r1/sherlock-reference.md",
+      "https://sherlock.docs.pyansys.com/version/stable/api/index.html"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:08.761Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "waterfall",
+    "name": "Waterfall.io",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "Waterfall.io provides an API for data processing and workflow automation.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with documentation for authentication, errors, and an OpenAPI spec.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.waterfall.io/v1/authentication",
+      "https://docs.waterfall.io/v1/introduction",
+      "https://docs.waterfall.io/v1/openapi-spec"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:16.777Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "clay",
+    "name": "Clay",
+    "category": "Data, SEO and Scraping",
+    "one_liner": "Clay provides a public API and developer tools for interacting with its data enrichment and outbound platform.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with developer documentation and CLI support.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.clay.com/public-api/authentication",
+      "https://developers.clay.com/quickstart",
+      "https://university.clay.com/docs/guide-find-clay-api-key"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:24.592Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "GitHub provides a comprehensive platform for version control and collaboration, featuring a broad REST and GraphQL API for interacting with repositories, issues, pull requests, and more.",
+    "auth_methods": [
+      "personal-access-token",
+      "oauth2",
+      "jwt"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering hundreds of resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+      "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens",
+      "https://docs.github.com/en/rest/authentication"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:32.361Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Vercel provides a REST API to manage deployments, projects, and account settings.",
+    "auth_methods": [
+      "bearer",
+      "personal-access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with documentation for authentication, access tokens, and SDKs.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://vercel.com/docs/rest-api/authentication",
+      "https://vercel.com/docs/accounts/access-tokens",
+      "https://vercel.com/docs/rest-api/sdk"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:40.369Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "netlify",
+    "name": "Netlify",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Netlify provides a web development platform for building, deploying, and managing modern web applications.",
+    "auth_methods": [
+      "personal-access-token",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API via OpenAPI specification, supporting broad functionality for managing sites, deploys, and builds.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://open-api.netlify.com/",
+      "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/",
+      "https://developers.netlify.com/guides/generating-personal-access-tokens-with-netlify-oauth/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:48.114Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Cloudflare provides an extensive REST API to manage its developer, infrastructure, and security services.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering many resources and subresources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.cloudflare.com/fundamentals/api/get-started/",
+      "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/",
+      "https://developers.cloudflare.com/fundamentals/oauth/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:24:56.281Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Supabase provides an open source Firebase alternative providing backend-as-a-service features such as databases, authentication, and management APIs.",
+    "auth_methods": [
+      "api-key",
+      "bearer"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering database, auth, and a Management API.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://supabase.com/docs/guides/getting-started/api-keys",
+      "https://supabase.com/docs/reference/api/introduction"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:04.146Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "neo4j",
+    "name": "Neo4j",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Neo4j is a graph database management system providing query and HTTP APIs for graph data operations.",
+    "auth_methods": [
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST and query APIs supporting graph database interactions.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://neo4j.com/docs/query-api/current/authentication-authorization/",
+      "https://neo4j.com/docs/http-api/current/authentication-authorization/",
+      "https://neo4j.com/docs/query-api/current/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:11.830Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "snowflake",
+    "name": "Snowflake",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Snowflake provides a cloud-based data warehousing and analytics platform with programmatic SQL and REST APIs for data management and querying.",
+    "auth_methods": [
+      "api-key",
+      "oauth2",
+      "jwt",
+      "basic"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API and SQL API with support for programmatic access tokens and key-pair authentication.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.snowflake.com/en/en/developer-guide/snowflake-rest-api/authentication",
+      "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+      "https://docs.snowflake.com/en/en/user-guide/programmatic-access-tokens"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:19.692Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "mongodb-atlas",
+    "name": "MongoDB Atlas",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "MongoDB Atlas provides a programmatic API for managing Atlas database deployments, projects, and administrative resources.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with programmatic API keys and OAuth2 for managing Atlas resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://www.mongodb.com/docs/api/doc/atlas-admin-api-v2/authentication",
+      "https://www.mongodb.com/docs/atlas/api/service-accounts/generate-oauth2-token",
+      "https://www.mongodb.com/docs/atlas/configure-api-access"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:27.551Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "datadog",
+    "name": "Datadog",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Datadog provides monitoring and security analytics for cloud applications through an extensive API.",
+    "auth_methods": [
+      "api-key",
+      "personal-access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering metrics, monitors, logs, and many other resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.datadoghq.com/api/",
+      "https://docs.datadoghq.com/account_management/personal-access-tokens/",
+      "https://www.datadoghq.com/blog/datadog-api-authentication/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:35.343Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "category": "Developer, Infra and Data platforms",
+    "one_liner": "Sentry provides an API for error tracking and application monitoring.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with broad coverage for error tracking, projects, and organizations.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.sentry.io/api/auth/",
+      "https://docs.sentry.io/api/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:43.304Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "category": "Productivity and Project Management",
+    "one_liner": "Notion provides a public REST API for interacting with pages, databases, blocks, and users.",
+    "auth_methods": [
+      "bearer",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API covering pages, databases, blocks, comments, and users.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.notion.com/reference/intro",
+      "https://developers.notion.com/reference/authentication",
+      "https://developers.notion.com/reference/create-a-token"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:51.072Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "airtable",
+    "name": "Airtable",
+    "category": "Productivity and Project Management",
+    "one_liner": "Airtable provides a web API to manage bases, tables, records, and comments.",
+    "auth_methods": [
+      "personal-access-token",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering bases, tables, records, and metadata.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://airtable.com/developers/web/api/authentication",
+      "https://airtable.com/developers/web/guides/personal-access-tokens",
+      "https://airtable.com/developers/web/api/introduction"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:25:58.790Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "category": "Productivity and Project Management",
+    "one_liner": "Linear is a project management tool providing a GraphQL API for managing issues, projects, and teams.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad GraphQL API and SDK for managing issues, projects, and teams.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://linear.app/developers/graphql",
+      "https://linear.app/developers/oauth-2-0-authentication",
+      "https://linear.app/developers/sdk"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:26:06.482Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "jira",
+    "name": "Jira",
+    "category": "Productivity and Project Management",
+    "one_liner": "Jira provides a comprehensive REST API for managing issues, projects, boards, and users in Jira Cloud.",
+    "auth_methods": [
+      "basic",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API covering Jira platform and software resources across multiple versioned endpoints.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.atlassian.com/cloud/jira/platform/rest/v2/intro/",
+      "https://developer.atlassian.com/cloud/jira/software/rest/intro/",
+      "https://developer.atlassian.com/developer-guide/auth/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:26:14.438Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "asana",
+    "name": "Asana",
+    "category": "Productivity and Project Management",
+    "one_liner": "Asana provides project management and team collaboration capabilities.",
+    "auth_methods": [
+      "oauth2",
+      "personal-access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API covering numerous project management resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.asana.com/docs/authentication",
+      "https://developers.asana.com/docs/overview",
+      "https://developers.asana.com/docs/oauth"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:26:22.694Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "monday",
+    "name": "Monday.com",
+    "category": "Productivity and Project Management",
+    "one_liner": "Monday.com provides a comprehensive platform API for managing boards, items, workspaces, and users.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad GraphQL API covering boards, items, updates, users, and app integration endpoints.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.monday.com/api-reference/docs/authentication",
+      "https://developer.monday.com/api-reference/docs/getting-started",
+      "https://developer.monday.com/apps/docs/oauth"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:26:30.444Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "clickup",
+    "name": "ClickUp",
+    "category": "Productivity and Project Management",
+    "one_liner": "ClickUp provides an API to interact with tasks, spaces, folders, and lists for project management automation.",
+    "auth_methods": [
+      "oauth2",
+      "personal-access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with a broad set of resources for project management.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.clickup.com/docs/authentication",
+      "https://developer.clickup.com/docs/Getting%20Started",
+      "https://developer.clickup.com/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:26:38.256Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "coda",
+    "name": "Coda",
+    "category": "Productivity and Project Management",
+    "one_liner": "Coda provides a programmable API to interact with docs, tables, rows, and account data.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with multiple endpoints for managing documents, tables, rows, and accounts.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://coda.io/@oleg/getting-started-guide-coda-api",
+      "https://apis.io/apis/coda/coda-account-api/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:26:46.082Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "smartsheet",
+    "name": "Smartsheet",
+    "category": "Productivity and Project Management",
+    "one_liner": "Smartsheet provides a platform and API to manage and automate collaborative work and project workflows.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with an OpenAPI specification covering broad project management and sheet resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.smartsheet.com/api/smartsheet/guides/basics/authentication",
+      "https://developers.smartsheet.com/api/smartsheet/openapi",
+      "https://help.smartsheet.com/articles/2482389-generate-API-key"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:26:53.847Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "harvest",
+    "name": "Harvest",
+    "category": "Productivity and Project Management",
+    "one_liner": "Harvest provides a time tracking and project management web service with a public API.",
+    "auth_methods": [
+      "oauth2",
+      "personal-access-token"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API via API v2 for accessing resources like time tracking, clients, and projects.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://help.getharvest.com/api-v2/introduction/overview/general/",
+      "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:01.748Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "category": "Finance and Fintech",
+    "one_liner": "Stripe is an online payment processing and financial infrastructure platform for internet businesses.",
+    "auth_methods": [
+      "api-key",
+      "bearer"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API supporting a comprehensive suite of payment, billing, and financial resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.stripe.com/api/authentication",
+      "https://docs.stripe.com/keys",
+      "https://docs.stripe.com/api?s..."
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:09.551Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "plaid",
+    "name": "Plaid",
+    "category": "Finance and Fintech",
+    "one_liner": "Plaid provides an API that connects bank accounts to financial applications.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "trial",
+    "api_surface": "REST API covering developer endpoints, sandbox, and switching to production.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Production credentials require a review process or approval.",
+    "evidence_urls": [
+      "https://plaid.com/docs/api/",
+      "https://plaid.com/docs/quickstart/",
+      "https://plaid.com/docs/sandbox/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:17.293Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "binance",
+    "name": "Binance",
+    "category": "Finance and Fintech",
+    "one_liner": "Binance provides a public REST and WebSocket API platform for cryptocurrency trading, account management, and service integration.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST and WebSocket API covering spot trading, algorithms, login integration, and open platform services.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.binance.com/docs/",
+      "https://www.binance.info/en/support/faq/detail/360002502072",
+      "https://developers.binance.com/docs/binance-spot-api-docs/websocket-api/general-requests"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:24.988Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "paygent-connect",
+    "name": "Paygent Connect",
+    "category": "Finance and Fintech",
+    "one_liner": "Paygent Connect provides backend API references, quickstarts, and SDKs for integration.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "REST API with SDK references, though specific details require full documentation access.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Documentation contents were not fetched to confirm self-serve access.",
+    "evidence_urls": [
+      "https://docs.paygent.to/reference/api-reference/",
+      "https://docs.paygent.to/getting-started/quickstart/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:32.815Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "ipayx",
+    "name": "iPayX",
+    "category": "Finance and Fintech",
+    "one_liner": "IXOPAY provides a transaction and provisioning API gateway for managing payments.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API covering transactions, provisioning, and pay-by-link.",
+    "has_mcp": true,
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Account setup and production access require approval or sales contact.",
+    "evidence_urls": [
+      "https://documentation.ixopay.com/api/transaction/transaction-api",
+      "https://github.com/iPAYX-Technologies/mcp-fx-audit",
+      "https://documentation.ixopay.com/manual/docs/system-setup/api-keys"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:40.622Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "quickbooks",
+    "name": "QuickBooks",
+    "category": "Finance and Fintech",
+    "one_liner": "QuickBooks provides an accounting REST API for financial data management and bookkeeping.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API for accounting data features and services.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization",
+      "https://developer.intuit.com/app/developer/qbo/docs/get-started/get-client-id-and-client-secret",
+      "https://developer.intuit.com/app/developer/qbo/docs/learn/rest-api-features"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:48.484Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "xero",
+    "name": "Xero",
+    "category": "Finance and Fintech",
+    "one_liner": "Xero provides a platform for accounting and financial services integrations via API.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with OAuth 2.0 and PKCE support for accounting, custom integrations, and developer tools.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.xero.com/",
+      "https://developer.xero.com/faq",
+      "https://developer.xero.com/custom-development"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:27:56.428Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "brex",
+    "name": "Brex",
+    "category": "Finance and Fintech",
+    "one_liner": "Brex offers a developer platform and API to manage expenses, users, and financial data.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with authentication, quickstart, roles, and error handling guides.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developer.brex.com/docs/faq",
+      "https://developer.brex.com/guides/authentication",
+      "https://developer.brex.com/guides/quickstart"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:28:04.393Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "ramp",
+    "name": "Ramp",
+    "category": "Finance and Fintech",
+    "one_liner": "Ramp provides an API for managing corporate cards, expenses, bill payments, and accounting integrations.",
+    "auth_methods": [
+      "oauth2",
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with a broad set of developer resources and endpoints.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.ramp.com/developer-api/",
+      "https://docs.ramp.com/llms-guides/authorization.txt",
+      "https://docs.ramp.com/llms-guides/getting-started.txt"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:28:12.229Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "pitchbook",
+    "name": "PitchBook",
+    "category": "Finance and Fintech",
+    "one_liner": "PitchBook provides financial data and market intelligence on private and public markets.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "Evidence indicates enterprise or direct data access requires sales contact or partnership.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "API access requires sales contact or enterprise subscription.",
+    "evidence_urls": [
+      "https://pitchbook.com/blog/what-is-direct-data",
+      "https://apitracker.io/a/pitchbook"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:28:20.121Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "notebooklm",
+    "name": "NotebookLM",
+    "category": "AI, Research and Media-native",
+    "one_liner": "NotebookLM is an AI-powered note-taking and research assistant tool.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "no public API",
+    "has_mcp": true,
+    "composio_toolkit_exists": "unknown",
+    "buildability": "blocked",
+    "blocker": "There is no official public API provided by the vendor.",
+    "evidence_urls": [
+      "https://roomi-fields.github.io/notebooklm-mcp/notebooklm-rest-api",
+      "https://github.com/Robiton/notebooklm-mcp-cli/blob/main/docs/AUTHENTICATION.md"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:28:28.026Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "otter-ai",
+    "name": "Otter AI",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Otter.ai provides transcription and meeting note services, with various references to public API offerings across different third-party and help center sources.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "No clear official REST or GraphQL API documentation was fetched to confirm the exact API surface.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "No direct self-serve developer portal or API key provisioning documentation was provided.",
+    "evidence_urls": [
+      "https://help.otter.ai/hc/en-us/articles/36130822688279-Otter-ai-Public-API",
+      "https://help.otter.ai/hc/en-us/articles/4412365535895-Does-Otter-offer-an-open-API"
+    ],
+    "confidence": "low",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:28:35.732Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "fathom",
+    "name": "Fathom",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Fathom provides an API for accessing video meeting recordings, transcripts, and related data.",
+    "auth_methods": [
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with webhooks and SDK support for managing Fathom resources.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://developers.fathom.ai/sdks/authentication",
+      "https://developers.fathom.ai/sdks/oauth",
+      "https://developers.fathom.ai/api-overview"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:28:43.979Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "consensus",
+    "name": "Consensus",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Consensus provides an API to search and interact with scientific research papers using AI.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "REST API with documentation available.",
+    "has_mcp": true,
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Credentials require approval or sales contact.",
+    "evidence_urls": [
+      "https://docs.consensus.app/reference/v1_quick_search",
+      "https://docs.consensus.app/docs/mcp",
+      "https://support.goconsensus.com/how-to-access-your-api-credentials"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:28:52.478Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "reducto",
+    "name": "Reducto",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Reducto provides an agentic document platform API and SDKs for parsing and processing documents.",
+    "auth_methods": [],
+    "access": "self-serve",
+    "api_surface": "unknown",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://reducto.ai/developers",
+      "https://docs.reducto.ai/sdk/python/overview",
+      "https://docs.reducto.ai/studio-account"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:29:00.728Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "devin",
+    "name": "Devin",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Devin provides an API for interacting with the Devin AI software engineer platform.",
+    "auth_methods": [
+      "personal-access-token",
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API with an overview, authentication, common flows, and usage examples.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "Access requires a sales conversation or application.",
+    "evidence_urls": [
+      "https://docs.devin.ai/api-reference/authentication",
+      "https://docs.devin.ai/api-reference/personal-access-tokens",
+      "https://docs.devin.ai/api-reference/overview"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:29:13.083Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "higgsfield",
+    "name": "higgsfield",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Higgsfield provides client libraries and documentation for interacting with their AI platform.",
+    "auth_methods": [],
+    "access": "gated",
+    "api_surface": "no public API",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "blocked",
+    "blocker": "No documented public API or self-serve credentials available.",
+    "evidence_urls": [
+      "https://docs.higgsfield.ai/docs",
+      "https://github.com/higgsfield-ai/higgsfield-client"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:29:21.263Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "mermaid-cli",
+    "name": "Mermaid CLI",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Mermaid CLI is a command-line tool for rendering Mermaid diagrams.",
+    "auth_methods": [],
+    "access": "self-serve",
+    "api_surface": "no public API",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://github.com/mermaid-js/mermaid-cli"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:29:29.023Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "youtube-transcript",
+    "name": "YouTube Transcript",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Provides access to YouTube video transcripts via an API.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API for fetching YouTube transcripts.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://transcriptapi.com/docs/api/"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:29:36.624Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "grain",
+    "name": "Grain",
+    "category": "AI, Research and Media-native",
+    "one_liner": "Grain provides a platform for recording, transcribing, and summarizing meetings.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API with developer documentation available through their developer portal.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": "unknown",
+    "buildability": "needs-outreach",
+    "blocker": "API access requires approval or partnership",
+    "evidence_urls": [
+      "https://developers.grain.com/",
+      "https://support.grain.com/en/articles/15507288-grain-api"
+    ],
+    "confidence": "med",
+    "meta": {
+      "pass": 1,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T19:29:44.321Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  }
+]
