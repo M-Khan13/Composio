@@ -1,6 +1,6 @@
 # 100-app agent-toolkit survey
 
-An agent that researches 100 SaaS apps for API surface, auth methods, and whether a developer could build an agent toolkit on them today — then measures its own accuracy against hand-checked truth.
+An agent that researches 100 SaaS apps for API surface, auth methods, and whether a developer could build an agent toolkit on them today then measures its own accuracy against hand-checked truth.
 
 ## Stack
 
@@ -27,7 +27,7 @@ Everything lands in `results/`.
 
 ## The page
 
-Open [`site/index.html`](site/index.html) — self-contained, all data inlined, no external requests. Rebuild with `npm run build:site`.
+Open [`https://composioproject.vercel.app/`](https://composioproject.vercel.app/) self-contained, all data inlined, no external requests. Rebuild with `npm run build:site`.
 
 ## Verification
 
