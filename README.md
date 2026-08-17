@@ -31,4 +31,4 @@ Open [`https://composioproject.vercel.app/`](https://composioproject.vercel.app/
 
 ## Verification
 
-`results/human_review.csv` holds the hand-checked ground truth for 18 apps. Accuracy is measured, not asserted — including where the second pass made things worse.
+`results/human_review.csv` holds the hand-checked ground truth for 18 apps. Accuracy is measured, not asserted including where the second pass made things worse.
