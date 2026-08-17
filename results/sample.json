@@ -1,0 +1,144 @@
+[
+  {
+    "id": "twenty",
+    "name": "Twenty",
+    "category": "CRM and Sales",
+    "one_liner": "An open-source CRM providing REST and GraphQL APIs for managing records, schema metadata, and OAuth-based integrations.",
+    "auth_methods": [
+      "api-key",
+      "oauth2",
+      "bearer"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST and GraphQL APIs covering both a Core API for CRUD on records and a Metadata API for schema management.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": false,
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.twenty.com/developers/extend/api",
+      "https://docs.twenty.com/developers/extend/oauth"
+    ],
+    "confidence": "high",
+    "meta": {
+      "pass": 2,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T16:16:32.329Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "category": "Communications and Messaging",
+    "one_liner": "Slack provides an API for querying information from and enacting change in a Slack workspace.",
+    "auth_methods": [
+      "oauth2",
+      "bearer"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad RPC-style HTTP API with over 200 methods.",
+    "has_mcp": true,
+    "composio_toolkit_exists": true,
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.slack.dev/apis/web-api/",
+      "http://docs.slack.dev/authentication/installing-with-oauth"
+    ],
+    "confidence": "high",
+    "meta": {
+      "pass": 2,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T16:16:48.456Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "category": "Finance and Fintech",
+    "one_liner": "Stripe provides APIs for online payment processing and financial infrastructure.",
+    "auth_methods": [
+      "api-key",
+      "basic",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "REST API with a broad set of resources for payment processing and financial services.",
+    "has_mcp": "unknown",
+    "composio_toolkit_exists": true,
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://docs.stripe.com/api/authentication",
+      "https://docs.stripe.com/stripe-apps/api-authentication"
+    ],
+    "confidence": "high",
+    "meta": {
+      "pass": 2,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T16:17:04.813Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "plaid",
+    "name": "Plaid",
+    "category": "Finance and Fintech",
+    "one_liner": "Plaid provides an API that enables applications to securely connect with users' bank accounts for financial data access.",
+    "auth_methods": [
+      "api-key",
+      "oauth2"
+    ],
+    "access": "self-serve",
+    "api_surface": "Broad REST API over JSON with numerous endpoints for financial data access, authentication, and webhooks.",
+    "has_mcp": false,
+    "composio_toolkit_exists": false,
+    "buildability": "easy",
+    "blocker": "",
+    "evidence_urls": [
+      "https://plaid.com/docs/api/",
+      "https://plaid.com/docs/api/oauth/"
+    ],
+    "confidence": "high",
+    "meta": {
+      "pass": 2,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T16:17:22.022Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  },
+  {
+    "id": "pitchbook",
+    "name": "PitchBook",
+    "category": "Finance and Fintech",
+    "one_liner": "PitchBook provides private market data and investment analytics including company profiles, funding rounds, valuations, investor information, and deal histories.",
+    "auth_methods": [
+      "api-key"
+    ],
+    "access": "gated",
+    "api_surface": "REST API with private market data endpoints.",
+    "has_mcp": true,
+    "composio_toolkit_exists": false,
+    "buildability": "needs-outreach",
+    "blocker": "API access requires contacting PitchBook support or enterprise account setup.",
+    "evidence_urls": [
+      "https://dev.writer.com/connectors/pitchbook",
+      "https://mcp-proxy-external.pitchbook.com/",
+      "https://pitchbook.com/blog/what-is-direct-data"
+    ],
+    "confidence": "high",
+    "meta": {
+      "pass": 2,
+      "issues": [],
+      "critic_changed": [],
+      "fetched_at": "2026-08-17T16:17:38.251Z",
+      "model": "gemini-3.5-flash-lite"
+    }
+  }
+]

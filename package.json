@@ -10,7 +10,8 @@
     "run:all": "tsx src/runAll.ts",
     "analyze": "tsx src/analyze.ts",
     "score": "tsx src/scoreAccuracy.ts",
-    "site": "npx --yes serve site"
+    "site": "npx --yes serve site",
+    "discover": "tsx src/discover.ts"
   },
   "dependencies": {
     "@composio/core": "^0.16.0",
